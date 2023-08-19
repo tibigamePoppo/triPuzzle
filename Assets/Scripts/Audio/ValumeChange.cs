@@ -22,6 +22,9 @@ namespace Audio
             controller = GetComponent<ButtonController>();
             image = GetComponent<Image>();
             source = FindObjectOfType<AudioSource>();
+            if (source == null) return;
+            valumeValue = source.volume;
+            slider.value = valumeValue;
             controller
                 .Pushed
                 .Subscribe(_ =>

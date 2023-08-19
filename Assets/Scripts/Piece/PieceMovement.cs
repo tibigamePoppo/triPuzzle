@@ -23,14 +23,21 @@ namespace Piece
         {
             // ドラッグ中は位置を更新する
             transform.position = eventData.position;
+            Debug.Log("OnDrag");
         }
 
         public void OnEndDrag(PointerEventData eventData)
         {
+            Debug.Log("OnEndDrag");
             // ドラッグ前の位置に戻す
             //transform.position = _prevPos;
             
             transform.SetParent(pieceParent, false);
+            if(pieceParent.CompareTag("PieceSlot"))
+            {
+                Debug.Log("CompareTag(PieceSlot)");
+                transform.position = pieceParent.transform.position;
+            }
             GetComponent<Image>().raycastTarget = true;
         }
     }
