@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d457174a4429714ca459cf8e809c496, type: 3}
   m_Name: Yacht
   m_EditorClassIdentifier: 
-  PuzzlePrefab: {fileID: 5510509200848347111, guid: 001932e5b4d36d9429b94460342892fd, type: 3}
+  PuzzlePrefab: {fileID: 4505179426990828487, guid: 001932e5b4d36d9429b94460342892fd, type: 3}
   PuzzleTitle: "\u30E8\u30C3\u30C8"

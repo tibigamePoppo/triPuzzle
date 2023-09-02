@@ -2,52 +2,44 @@ using System.Collections.Generic;
 using UnityEngine;
 using Ingame;
 using TMPro;
-
-public class GeneratingPuzzle : MonoBehaviour
+namespace Piece
 {
-    [Header("生成するお題のプレファブ")]
-    [SerializeField, Tooltip("お題のPuzzleDataすべてを格納する")]
-    private List<PuzzleData> Puzzle;
-    [SerializeField, Tooltip("生成するパズルの親のオブジェクト")]
-    private GameObject PuzzleParentObject;
-    [SerializeField, Tooltip("パズルのタイトルテキスト")]
-    private TextMeshProUGUI PuzzleTitle;
-    private GameObject GeneratedPuzzleObject = null;
-    int randomInt = 0;
-    void Start()
+    public class GeneratingPuzzle : MonoBehaviour
     {
-        if (Puzzle.Count != 0)
+        [Header("生成するお題のプレファブ")]
+        [SerializeField, Tooltip("お題のPuzzleDataすべてを格納する")]
+        private List<PuzzleData> Puzzle;
+        [SerializeField, Tooltip("生成するパズルの親のオブジェクト")]
+        private GameObject PuzzleParentObject;
+        [SerializeField, Tooltip("パズルのタイトルテキスト")]
+        private TextMeshProUGUI PuzzleTitle;
+        private GameObject GeneratedPuzzleObject = null;
+        int randomInt = 0;
+        [SerializeField]
+        SeparatePiece pieceCs;
+
+        public void Generate(bool same)
         {
-            Generate(false);
+            if (Puzzle.Count == 0)
+            {
+                return;
+            }
+            if (!same) randomInt = Random.Range(0, Puzzle.Count);
+            GeneratedPuzzleObject = Instantiate(Puzzle[randomInt].PuzzlePrefab, PuzzleParentObject.transform);
+            var GeneratedPieceObject = Instantiate(Puzzle[randomInt].PuzzlePrefab, PuzzleParentObject.transform);
+            PuzzleTitle.text = Puzzle[randomInt].PuzzleTitle;
+            pieceCs.Separate(GeneratedPieceObject);
         }
-        else
+
+        public void ReGenerate(bool same)
         {
-            Debug.LogWarning("GeneratingPuzzleのPuzzleにデータがセットされていません");
+            if (GeneratedPuzzleObject == null)
+            {
+                Debug.LogError("GeneratedPuzzleObjectが設定されていません");
+                return;
+            }
+            Destroy(GeneratedPuzzleObject);
+            Generate(same);
         }
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void Generate(bool same)
-    {
-        if(!same) randomInt = Random.Range(0, Puzzle.Count);
-        GeneratedPuzzleObject = Instantiate(Puzzle[randomInt].PuzzlePrefab, PuzzleParentObject.transform);
-        PuzzleTitle.text = Puzzle[randomInt].PuzzleTitle;
-    }
-
-    public void ReGenerate(bool same)
-    {
-        if (GeneratedPuzzleObject == null)
-        {
-            Debug.LogError("GeneratedPuzzleObjectが設定されていません");
-            return;
-        }
-        Destroy(GeneratedPuzzleObject);
-        Generate(same);
     }
 }
