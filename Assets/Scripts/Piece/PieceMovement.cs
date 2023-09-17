@@ -35,7 +35,7 @@ namespace Piece
         public void OnDrag(PointerEventData eventData)
         {
             // ドラッグ中は位置を更新する
-            parentObject.transform.position = eventData.position;
+            parentObject.transform.position = eventData.position - (Vector2)PiecePosition;
         }
 
         public void OnEndDrag(PointerEventData eventData)
