@@ -5,7 +5,10 @@ namespace Piece
 {
     public class PieceSlot : Droppable
     {
+        [SerializeField] private int pieceNum;
         private GameObject _pieceSetArea;
+
+        public int GetPieceNum() { return pieceNum;} 
         
         private void Start()
         {
@@ -18,8 +21,9 @@ namespace Piece
             if (card != null) // もしカードがあれば、
             {
                 Debug.Log("位置の修正");
-                card.parentObject.transform.SetParent(_pieceSetArea.transform, false);
-                card.parentObject.transform.position = gameObject.transform.position - card.PiecePosition; // カードの座標を修正する
+                card.toPieceNum = pieceNum;
+                card.ParentObject.transform.SetParent(_pieceSetArea.transform, false);
+                card.ParentObject.transform.position = gameObject.transform.position - card.PiecePosition; // カードの座標を修正する
             }
         }
     }

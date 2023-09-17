@@ -103,7 +103,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37e959bec0ad2054baf36013f4409d44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pieceParent: {fileID: 0}
+  parentObject: {fileID: 0}
+  canDrop: 0
 --- !u!114 &640750919654650758
 MonoBehaviour:
   m_ObjectHideFlags: 0

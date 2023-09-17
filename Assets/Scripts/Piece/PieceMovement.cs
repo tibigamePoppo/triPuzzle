@@ -1,58 +1,77 @@
-using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.Serialization;
-using UnityEngine.UI;
 
 namespace Piece
 {
     public class PieceMovement : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
     {
-        public GameObject parentObject;
+        public GameObject ParentObject { get; private set; }
+        private PieceParent _pieceParent;
         public bool canDrop;
         public Vector3 PiecePosition { get; private set; }
         private CanvasGroup _canvasGroup;
         private Transform _prevParent;
         private Vector3 _prevPos;
+        private int _pieceNum;
+        public int toPieceNum;
 
         private void Start()
         {
-            parentObject = transform.parent.gameObject;
-            _canvasGroup = parentObject.GetComponent<CanvasGroup>();
+            ParentObject = transform.parent.gameObject;
+            _pieceParent = ParentObject.GetComponent<PieceParent>();
+            _canvasGroup = ParentObject.GetComponent<CanvasGroup>();
             PiecePosition = gameObject.GetComponent<RectTransform>().position;
+            _pieceNum = GetComponent<PieceSlot>().GetPieceNum();
+            toPieceNum = _pieceNum;
         }
 
         public void OnBeginDrag(PointerEventData eventData)
         {
+            toPieceNum = _pieceNum;
             // ドラッグ前の位置を記憶しておく
-            _prevPos = parentObject.transform.position;
+            _prevPos = ParentObject.transform.position;
             // ピース全体の親オブジェクトを保存
-            _prevParent = parentObject.transform.parent;
+            _prevParent = ParentObject.transform.parent;
             _canvasGroup.blocksRaycasts = false;
-            parentObject.transform.SetParent(_prevParent.parent, false);
+            ParentObject.transform.SetParent(_prevParent.parent, false);
+            //_pieceParent.BeginMove();
         }
 
         public void OnDrag(PointerEventData eventData)
         {
             // ドラッグ中は位置を更新する
-            parentObject.transform.position = eventData.position - (Vector2)PiecePosition;
+            ParentObject.transform.position = eventData.position - (Vector2)PiecePosition;
         }
 
         public void OnEndDrag(PointerEventData eventData)
         {
             Debug.Log("OnEndDrag");
+            CheckDroppable();
             if (!canDrop)
             {
                 ResetPosition();
             }
             _canvasGroup.blocksRaycasts = true;
             canDrop = false;
+            //_pieceParent.EndMove();
         }
 
         private void ResetPosition()
         {
-            parentObject.transform.position = _prevPos;
-            parentObject.transform.SetParent(_prevParent.transform, false);
+            ParentObject.transform.SetParent(_prevParent.transform, false);
+            ParentObject.transform.position = _prevPos;
+        }
+
+        private void CheckDroppable()
+        {
+            if (canDrop)
+            {
+                canDrop = _pieceNum == toPieceNum;
+            }
+            if (canDrop)
+            {
+                //canDrop = _pieceParent.CheckCollider();
+            }
         }
     }
 }
