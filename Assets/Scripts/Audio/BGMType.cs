@@ -8,5 +8,8 @@ namespace Audio
     {
         titel,
         inGame,
+        night,
+        room,
+        rain
     }
 }

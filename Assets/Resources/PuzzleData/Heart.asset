@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PuzzlePrefab: {fileID: 2712260953039148796, guid: 036e84a0400f05449bc7f9c6cd6c2136, type: 3}
   PuzzleTitle: "\u30CF\u30FC\u30C8"
+  PuzzleType: 1
