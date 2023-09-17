@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7179959236148552541}
   - component: {fileID: 7179959236148552538}
   - component: {fileID: 7179959236148552539}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: FadeIn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 7179959236412109014}
   - component: {fileID: 7179959236412109015}
   - component: {fileID: 7179959236412109012}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}

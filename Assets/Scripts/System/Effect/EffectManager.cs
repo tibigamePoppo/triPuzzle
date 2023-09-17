@@ -42,11 +42,11 @@ namespace System.Effect
                 case EffectType.ScreenTap:
                     break;
                 case EffectType.PieceSet:
-                    var PieceSet = Instantiate(PieceSetEffect, transform);
+                    var PieceSet = Instantiate(PieceSetEffect, InstancePosition,Quaternion.identity);
                     Destroy(PieceSet, 3f);
                     break;
                 case EffectType.CompletePuzzle:
-                    var CompletePuzzle = Instantiate(CompletePuzzleEffect, transform);
+                    var CompletePuzzle = Instantiate(CompletePuzzleEffect, InstancePosition, Quaternion.identity);
                     Destroy(CompletePuzzle, 3f);
                     break;
                 default:

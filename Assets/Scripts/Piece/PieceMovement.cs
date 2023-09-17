@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -7,6 +8,7 @@ namespace Piece
     {
         public GameObject ParentObject { get; private set; }
         private PieceParent _pieceParent;
+        private GameStateManager stateManager;
         public bool canDrop;
         public Vector3 PiecePosition { get; private set; }
         private CanvasGroup _canvasGroup;
@@ -21,6 +23,7 @@ namespace Piece
             _pieceParent = ParentObject.GetComponent<PieceParent>();
             _canvasGroup = ParentObject.GetComponent<CanvasGroup>();
             PiecePosition = gameObject.GetComponent<RectTransform>().position;
+            stateManager = FindObjectOfType<GameStateManager>();
             _pieceNum = GetComponent<PieceSlot>().GetPieceNum();
             toPieceNum = _pieceNum;
         }
@@ -53,6 +56,7 @@ namespace Piece
             }
             _canvasGroup.blocksRaycasts = true;
             canDrop = false;
+            stateManager.DropPiece.Invoke();
             //_pieceParent.EndMove();
         }
 

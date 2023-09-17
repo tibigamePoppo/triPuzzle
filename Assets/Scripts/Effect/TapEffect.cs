@@ -10,7 +10,6 @@ public class TapEffect : MonoBehaviour
     private void Start()
     {
         tapEffect = GetComponent<ParticleSystem>();
-        Camera = Camera.main;
         StartCoroutine(InputMouse());
     }
     IEnumerator InputMouse()
@@ -19,6 +18,10 @@ public class TapEffect : MonoBehaviour
         {
             Debug.Log("tap");
             yield return new WaitUntil(() => Input.GetKey(KeyCode.Mouse0));
+            if(Camera == null)
+            {
+                Camera = Camera.main;
+            }
             var pos = Camera.ScreenToWorldPoint(Input.mousePosition + Camera.transform.forward * 10);
             tapEffect.transform.position = pos;
             tapEffect.Emit(1);

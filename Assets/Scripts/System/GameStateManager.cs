@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Piece;
+using System.Effect;
 
 namespace System
 {
@@ -17,10 +18,18 @@ namespace System
         GeneratingPuzzle GeneratingPuzzleCs;
         [SerializeField]
         GameObject ResultObject;
+        private PieceArea pieceArea;
+        [SerializeField]
+        Transform PazzlePosition;
+        [SerializeField]
+        private List<GameObject> ResetChildObjects;
+        public Action DropPiece;
         private GameState CurrentState = GameState.SetUp;
         void Start()
         {
+            pieceArea = FindObjectOfType<PieceArea>();
             ChangeState(GameState.SetUp);
+            DropPiece = CheckCompletePuzzle;
         }
 
         public void ChangeState(GameState state)
@@ -41,6 +50,22 @@ namespace System
                 default:
                     break;
             }
+        }
+
+        private void CheckCompletePuzzle()
+        {
+            if(pieceArea.isAllUsePiece())
+            {
+                Debug.Log("すべてのピースを使用しました");
+                EffectManager.Instance.InstanceEffect(EffectType.CompletePuzzle, PazzlePosition.position);
+                StartCoroutine(goResult());
+            }
+        }
+
+        IEnumerator goResult()
+        {
+            yield return new WaitForSeconds(5f);
+            ChangeState(GameState.Result);
         }
     }
 }

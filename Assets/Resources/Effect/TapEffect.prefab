@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5111013982682906177}
   - component: {fileID: 8752880261719043049}
   - component: {fileID: 7905299947433609326}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TapEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
