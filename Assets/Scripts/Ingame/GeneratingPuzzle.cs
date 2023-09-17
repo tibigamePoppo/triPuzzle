@@ -17,6 +17,8 @@ namespace Piece
         int randomInt = 0;
         [SerializeField]
         SeparatePiece pieceCs;
+        [SerializeField]
+        BackGroundSet backGroundSet;
 
         public void Generate(bool same)
         {
@@ -28,6 +30,7 @@ namespace Piece
             GeneratedPuzzleObject = Instantiate(Puzzle[randomInt].PuzzlePrefab, PuzzleParentObject.transform);
             var GeneratedPieceObject = Instantiate(Puzzle[randomInt].PuzzlePrefab, PuzzleParentObject.transform);
             PuzzleTitle.text = Puzzle[randomInt].PuzzleTitle;
+            backGroundSet.setBackGround(Puzzle[randomInt]);
             pieceCs.Separate(GeneratedPieceObject);
         }
 

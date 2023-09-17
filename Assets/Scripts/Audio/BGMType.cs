@@ -6,7 +6,7 @@ namespace Audio
 {
     public enum BGMType
     {
-        titel,
+        title,
         inGame,
         night,
         room,

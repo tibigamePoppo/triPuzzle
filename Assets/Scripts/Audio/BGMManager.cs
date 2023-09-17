@@ -34,6 +34,7 @@ namespace Audio
         {
             AudioClip clip = null;
             clip = seLists.FirstOrDefault(se => se.name.Equals(type.ToString()));
+            AudioSource.Stop();
 
             if (clip != null)
             {
