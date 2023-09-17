@@ -1,19 +1,30 @@
-using Piece;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class PieceSlot : DropPlace
+namespace Piece
 {
-    public override void OnDrop(PointerEventData eventData)
+    public class PieceSlot : Droppable
     {
-        base.OnDrop(eventData);
-        var card = eventData.pointerDrag.GetComponent<PieceMovement>(); // ドラッグしてきた情報からCardMovementを取得
-        if (card != null) // もしカードがあれば、
+        [SerializeField] private int pieceNum;
+        private GameObject _pieceSetArea;
+
+        public int GetPieceNum() { return pieceNum;} 
+        
+        private void Start()
         {
-            Debug.Log("位置の修正");
-            card.gameObject.transform.position = new Vector3(0, 0, 0); // カードの座標を修正する
+            _pieceSetArea = GameObject.FindGameObjectWithTag("SetArea");
+        }
+        public override void OnDrop(PointerEventData eventData)
+        {
+            base.OnDrop(eventData);
+            var card = eventData.pointerDrag.GetComponent<PieceMovement>(); // ドラッグしてきた情報からCardMovementを取得
+            if (card != null) // もしカードがあれば、
+            {
+                Debug.Log("位置の修正");
+                card.toPieceNum = pieceNum;
+                card.ParentObject.transform.SetParent(_pieceSetArea.transform, false);
+                card.ParentObject.transform.position = gameObject.transform.position - card.PiecePosition; // カードの座標を修正する
+            }
         }
     }
 }
