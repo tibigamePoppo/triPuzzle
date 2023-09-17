@@ -13,7 +13,7 @@ public class PieceSlot : DropPlace
         if (card != null) // もしカードがあれば、
         {
             Debug.Log("位置の修正");
-            card.gameObject.transform.position = new Vector3(0, 0, 0); // カードの座標を修正する
+            card.parentObject.transform.position = gameObject.transform.position - card.PiecePosition; // カードの座標を修正する
         }
     }
 }

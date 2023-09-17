@@ -194,7 +194,7 @@ RectTransform:
   - {fileID: 891211994}
   - {fileID: 1879004969}
   m_Father: {fileID: 320324572}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -316,8 +316,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8337a5fda35eb5c4aa2cc00a342a2796, type: 2}
   - {fileID: 11400000, guid: 5b565afcb451f944f89dfff47ba448a2, type: 2}
   - {fileID: 11400000, guid: e3db5e1b666efcd4eae3a99e1d1023e3, type: 2}
-  - {fileID: 11400000, guid: 963a57392bea4694ab92bd9f8c46ebb2, type: 2}
-  - {fileID: 11400000, guid: 4ff8eafe3566cc244b630db6e3b55312, type: 2}
   PuzzleParentObject: {fileID: 1629379776}
   PuzzleTitle: {fileID: 1792822557}
   pieceCs: {fileID: 200240824}
@@ -592,9 +590,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1315462540}
+  - {fileID: 1629379777}
+  - {fileID: 2011878765}
   - {fileID: 1990769054}
   - {fileID: 1942365728}
-  - {fileID: 1629379777}
   - {fileID: 719033871}
   - {fileID: 1613261765}
   - {fileID: 2086591620}
@@ -1069,7 +1068,7 @@ RectTransform:
   m_Children:
   - {fileID: 1792822556}
   m_Father: {fileID: 320324572}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1655,7 +1654,7 @@ RectTransform:
   m_Children:
   - {fileID: 108910391}
   m_Father: {fileID: 320324572}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1802,7 +1801,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 320324572}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2888,7 +2887,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 320324572}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2981,6 +2980,42 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!1 &2011878764
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2011878765}
+  m_Layer: 5
+  m_Name: PuzzleSetArea
+  m_TagString: SetArea
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2011878765
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2011878764}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 320324572}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 250, y: -60}
+  m_SizeDelta: {x: 460, y: 400}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2086591619
 GameObject:
   m_ObjectHideFlags: 0
@@ -3014,7 +3049,7 @@ RectTransform:
   m_Children:
   - {fileID: 1673547120}
   m_Father: {fileID: 320324572}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3089,7 +3124,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2643318261149592604, guid: 69e778d14b9879448bcbeae2a753afce, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2643318261149592604, guid: 69e778d14b9879448bcbeae2a753afce, type: 3}
       propertyPath: m_AnchorMax.x
