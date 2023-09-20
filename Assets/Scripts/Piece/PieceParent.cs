@@ -8,9 +8,6 @@ namespace Piece
         [SerializeField]
         private List<GameObject> ChildPiece;
 
-        private const int LayerSettingPiece = 6;
-        private const int LayerMovingPiece = 7;
-
         public List<GameObject> getObject()
         {
             return ChildPiece;
@@ -44,28 +41,18 @@ namespace Piece
         {
             foreach (var item in ChildPiece)
             {
-                var col2D = item.GetComponent<Collider2D>();
-                var count = col2D.OverlapCollider(new ContactFilter2D(), new Collider2D[5]);
-                Debug.Log("d‚È‚Á‚½”F"+count);
-                if (count > 0) return false;
+                //var hit1 = Physics2D.OverlapPoint(item.transform.position);
+                var collider2D = item.GetComponent<Collider2D>();
+                collider2D.enabled = false;
+                var hit = Physics2D.OverlapPoint(item.transform.position);
+                collider2D.enabled = true;
+
+                if (!hit || !hit.gameObject.TryGetComponent(out PieceSlot _))
+                {
+                    return false;
+                }
             }
             return true;
-        }
-
-        public void BeginMove()
-        {
-            foreach (var item in ChildPiece)
-            {
-                item.layer = LayerMovingPiece;
-            }
-        }
-
-        public void EndMove()
-        {
-            foreach (var item in ChildPiece)
-            {
-                item.layer = LayerSettingPiece;
-            }
         }
     }
 }

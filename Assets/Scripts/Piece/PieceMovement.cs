@@ -10,6 +10,7 @@ namespace Piece
         private PieceParent _pieceParent;
         private GameStateManager stateManager;
         public bool canDrop;
+        public bool isArea;
         public Vector3 PiecePosition { get; private set; }
         private CanvasGroup _canvasGroup;
         private Transform _prevParent;
@@ -37,7 +38,6 @@ namespace Piece
             _prevParent = ParentObject.transform.parent;
             _canvasGroup.blocksRaycasts = false;
             ParentObject.transform.SetParent(_prevParent.parent, false);
-            //_pieceParent.BeginMove();
         }
 
         public void OnDrag(PointerEventData eventData)
@@ -51,7 +51,10 @@ namespace Piece
             }
 
             // ドラッグ中は位置を更新する
-            ParentObject.transform.position = eventData.position - (Vector2)PiecePosition;
+            if (Camera.main == null) return;
+            var dragPos = Camera.main.ScreenToWorldPoint(eventData.position) - PiecePosition;
+            dragPos.z = 0f;
+            ParentObject.transform.position = dragPos;
         }
 
         public void OnEndDrag(PointerEventData eventData)
@@ -64,8 +67,8 @@ namespace Piece
             }
             _canvasGroup.blocksRaycasts = true;
             canDrop = false;
+            isArea = false;
             stateManager.DropPiece.Invoke();
-            //_pieceParent.EndMove();
         }
 
         private void ResetPosition()
@@ -80,9 +83,9 @@ namespace Piece
             {
                 canDrop = _pieceNum == toPieceNum;
             }
-            if (canDrop)
+            if (canDrop && !isArea)
             {
-                //canDrop = _pieceParent.CheckCollider();
+                canDrop = _pieceParent.CheckCollider();
             }
         }
     }
