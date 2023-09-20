@@ -14,6 +14,7 @@ namespace Piece
                 Debug.Log("位置の修正");
                 card.ParentObject.transform.SetParent(gameObject.transform, false);
                 card.ParentObject.transform.position = new Vector3(0f, 0f, 0f); // カードの座標を修正する
+                card.isArea = true;
             }
         }
 

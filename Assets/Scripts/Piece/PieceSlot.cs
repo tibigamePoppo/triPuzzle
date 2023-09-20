@@ -23,7 +23,8 @@ namespace Piece
                 Debug.Log("位置の修正");
                 card.toPieceNum = pieceNum;
                 card.ParentObject.transform.SetParent(_pieceSetArea.transform, false);
-                card.ParentObject.transform.position = gameObject.transform.position - card.PiecePosition; // カードの座標を修正する
+                card.ParentObject.transform.position = gameObject.transform.position - card.PiecePosition - new Vector3(0f, 0f, 1f); // カードの座標を修正する
+                card.isArea = false;
             }
         }
     }
