@@ -42,6 +42,14 @@ namespace Piece
 
         public void OnDrag(PointerEventData eventData)
         {
+            Touch touchInfo;
+            if(Input.touchCount != 0)
+            {
+                touchInfo = Input.GetTouch(0);
+                eventData.position = touchInfo.position;
+                Debug.Log("Touch");
+            }
+
             // ドラッグ中は位置を更新する
             ParentObject.transform.position = eventData.position - (Vector2)PiecePosition;
         }
