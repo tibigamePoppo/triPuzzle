@@ -181,8 +181,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: d9ecaa70a2543f8478be415a59c200db, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -543,8 +543,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: d3673f39d558c71469c5f9203fc68382, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1115,7 +1115,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 42d56278da20cfc43ae48f03fcf3b4bb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f40f0e68343ba5f489e5b57d1512ac8d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1151,8 +1151,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   valumeImage:
-  - {fileID: 21300000, guid: 42d56278da20cfc43ae48f03fcf3b4bb, type: 3}
-  - {fileID: 21300000, guid: 6b2cf989d71368c4b866282b5c4b1663, type: 3}
+  - {fileID: 21300000, guid: f40f0e68343ba5f489e5b57d1512ac8d, type: 3}
+  - {fileID: 21300000, guid: 655573eaeb0bf864285ed9a94bfff255, type: 3}
   slider: {fileID: 707231760}
 --- !u!222 &1701101882
 CanvasRenderer:
