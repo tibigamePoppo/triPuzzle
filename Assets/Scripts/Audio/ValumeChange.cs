@@ -9,8 +9,7 @@ namespace Audio
     {
         ButtonController controller;
         private bool valumeOn = true;
-        private float valumeValue = 1f;
-        //private float preValume = 0f;
+        [SerializeField] private float valumeValue = 0.5f;
         private AudioSource _bgmSource;
         private AudioSource _seSource;
         [SerializeField,Tooltip("ボリュームがオンとオフの時のSprite")]
@@ -26,7 +25,6 @@ namespace Audio
             _bgmSource = FindObjectOfType<BGMManager>().GetComponent<AudioSource>();
             _seSource = FindObjectOfType<SeManager>().GetComponent<AudioSource>();
             if (_bgmSource == null || _seSource == null) return;
-            valumeValue = _bgmSource.volume;
             slider.value = valumeValue;
             controller
                 .Pushed
