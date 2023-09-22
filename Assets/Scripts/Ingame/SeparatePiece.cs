@@ -57,25 +57,25 @@ namespace Piece
             switch (randomColorInt)
             {
                 case 0:
-                    returnColor = Color.red;
+                    returnColor = new Color(233f / 255f, 166f / 255f, 172f / 255f);
                     break;
                 case 1:
-                    returnColor = Color.blue;
+                    returnColor = new Color(247f / 255f, 188f / 255f, 163f / 255f);
                     break;
                 case 2:
-                    returnColor = Color.yellow;
+                    returnColor = new Color(245f / 255f, 220f / 255f, 154f / 255f);
                     break;
                 case 3:
-                    returnColor = Color.green;
+                    returnColor = new Color(180f / 255f, 221f / 255f, 144f / 255f);
                     break;
                 case 4:
-                    returnColor = Color.white;
+                    returnColor = new Color(156f / 255f, 193f / 255f, 225f / 255f);
                     break;
                 case 5:
-                    returnColor = Color.magenta;
+                    returnColor = new Color(228f / 255f, 168f / 255f, 192f / 255f);
                     break;
                 default:
-                    returnColor = Color.black;
+                    returnColor = new Color(233f / 255f, 166f / 255f, 172f / 255f);
                     break;
             }
             return returnColor;

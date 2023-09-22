@@ -43,22 +43,25 @@ namespace Piece
 
                 var nextValue = Random.Range(0, nextPiece.Count);
                 var tempNextPiece = nextPiece[nextValue];           //隣のピースをランダムで選択する
-                if (tempNextPiece.TryGetComponent(out PieceInfo infoCs))
+                if(tempNextPiece != null)
                 {
-                    //選択しているオブジェクトが分割されていない戻り値として返す
-                    if (!infoCs.getIsSeparated)
+                    if (tempNextPiece.TryGetComponent(out PieceInfo infoCs))
                     {
-                        if (count != 0)
+                        //選択しているオブジェクトが分割されていない戻り値として返す
+                        if (!infoCs.getIsSeparated)
                         {
-                            //Debug.Log($"Countが残っているため隣接ピースを追加:{count}");
-                            count--;
-                            var nextPiece = infoCs.getNextPiece(count);
-                            foreach (var item in nextPiece)
+                            if (count != 0)
                             {
-                                returnPiece.Add(item);
+                                //Debug.Log($"Countが残っているため隣接ピースを追加:{count}");
+                                count--;
+                                var nextPiece = infoCs.getNextPiece(count);
+                                foreach (var item in nextPiece)
+                                {
+                                    returnPiece.Add(item);
+                                }
                             }
+                            return returnPiece;
                         }
-                        return returnPiece;
                     }
                 }
                 if (loop > loopMax)

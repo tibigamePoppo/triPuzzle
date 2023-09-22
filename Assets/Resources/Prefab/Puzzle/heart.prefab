@@ -59,24 +59,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ChildPiece:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8852103226503191444}
+  - {fileID: 8383796738274572828}
+  - {fileID: 8870387491649709401}
+  - {fileID: 8870387492557789616}
+  - {fileID: 8870387491741222604}
+  - {fileID: 8870387491579157503}
+  - {fileID: 8870387492429810671}
+  - {fileID: 8870387492534466975}
+  - {fileID: 8870387492997067769}
+  - {fileID: 8870387492162294565}
+  - {fileID: 8870387492083879568}
+  - {fileID: 8870387492087687502}
+  - {fileID: 8870387491608275756}
+  - {fileID: 8870387491379594878}
 --- !u!1001 &4890279452362577051
 PrefabInstance:
   m_ObjectHideFlags: 0

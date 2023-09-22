@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 3478162787874346937}
   - component: {fileID: 8203835971527613554}
   - component: {fileID: 5763551833800824463}
-  - component: {fileID: 3803889875995226874}
   - component: {fileID: 7986766088379562421}
   - component: {fileID: -7036338772688001685}
+  - component: {fileID: 3803889875995226874}
   - component: {fileID: 4566585515686765974}
   - component: {fileID: 511371096992257478}
   m_Layer: 5
@@ -72,7 +72,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9d46638b7884fea4ba5dd5268e30d31f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -94,19 +94,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f738dc8d31e6fb24fb36708b25bb0701, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3803889875995226874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4000597205573021319}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a6951a86edf4cc4f85cc6aba00f1f28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pieceNum: 0
 --- !u!114 &7986766088379562421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,8 +108,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextPiece:
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   Rotation: 0
 --- !u!114 &-7036338772688001685
 MonoBehaviour:
@@ -136,6 +121,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57870472b0a2f2c4eb59ecb59f3f7a2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3803889875995226874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4000597205573021319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a6951a86edf4cc4f85cc6aba00f1f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pieceNum: 0
 --- !u!60 &4566585515686765974
 PolygonCollider2D:
   m_ObjectHideFlags: 0
