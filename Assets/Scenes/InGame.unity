@@ -324,6 +324,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8ef1a6b02f673f347b26744ae83a51d0, type: 2}
   - {fileID: 11400000, guid: 4fb9911b36c0d2942b60098aca471582, type: 2}
   - {fileID: 11400000, guid: e3db5e1b666efcd4eae3a99e1d1023e3, type: 2}
+  - {fileID: 11400000, guid: 0b708f3faa12fa2468f8e0a60ff142f3, type: 2}
   PuzzleParentObject: {fileID: 1629379776}
   PuzzleTitle: {fileID: 1792822557}
   pieceCs: {fileID: 200240824}
@@ -1469,6 +1470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31f2b15c541ce554c8dc4f814707b34f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  valumeValue: 0.5
   valumeImage:
   - {fileID: 21300000, guid: f40f0e68343ba5f489e5b57d1512ac8d, type: 3}
   - {fileID: 21300000, guid: 655573eaeb0bf864285ed9a94bfff255, type: 3}
@@ -2935,14 +2937,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7311321, g: 1, b: 0.98936385, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f718656f8d181714e8b0f1d0cc59683b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e4149386b92c6934986c48146fe7a84a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2973,7 +2975,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 20
+    m_Left: 40
     m_Right: 0
     m_Top: 50
     m_Bottom: 0
