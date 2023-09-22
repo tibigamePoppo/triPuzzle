@@ -34,11 +34,12 @@ namespace Audio
         {
             AudioClip clip = null;
             clip = seLists.FirstOrDefault(se => se.name.Equals(type.ToString()));
-            AudioSource.Stop();
 
             if (clip != null)
             {
-                AudioSource.PlayOneShot(clip);
+                AudioSource.Stop();
+                AudioSource.clip = clip;
+                AudioSource.Play();
             }
         }
         //SeManager.Instance.ShotSe(SeType.MoveCard);Ç∆ì¸óÕÇ∑ÇÈÇ∆âπÇ™èoÇÈ?
