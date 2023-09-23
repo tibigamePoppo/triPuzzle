@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 namespace Piece
@@ -44,10 +43,10 @@ namespace Piece
                 //var hit1 = Physics2D.OverlapPoint(item.transform.position);
                 var collider2D = item.GetComponent<Collider2D>();
                 collider2D.enabled = false;
-                var hit = Physics2D.OverlapPoint(item.transform.position);
+                var res = new Collider2D[5];
+                var hit = Physics2D.OverlapPoint(item.transform.position, new ContactFilter2D(), res);
                 collider2D.enabled = true;
-
-                if (!hit || !hit.gameObject.TryGetComponent(out PieceSlot _))
+                if (hit != 1)
                 {
                     return false;
                 }

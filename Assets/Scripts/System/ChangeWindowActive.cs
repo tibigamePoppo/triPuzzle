@@ -9,6 +9,8 @@ namespace System
     {
         [SerializeField, Tooltip("アクティブを変更するオブジェクトを設定")]
         private GameObject activeObject;
+
+        [SerializeField] private GameObject shadow;
         [SerializeField, Tooltip("変更されるアクティブの値")]
         private bool value;
         ButtonController controller;
@@ -25,6 +27,7 @@ namespace System
 
         private void ActiveChange()
         {
+            shadow.SetActive(value);
             activeObject.SetActive(value);
         }
     }
