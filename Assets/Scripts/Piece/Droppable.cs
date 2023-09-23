@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -11,7 +10,6 @@ namespace Piece
             var card = eventData.pointerDrag.GetComponent<PieceMovement>(); // ドラッグしてきた情報からCardMovementを取得
             if (card != null) // もしカードがあれば、
             {
-                Debug.Log(this.gameObject.name);
                 card.canDrop = true;
             }
         }

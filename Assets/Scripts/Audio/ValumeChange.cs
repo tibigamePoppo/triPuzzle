@@ -25,6 +25,7 @@ namespace Audio
             _bgmSource = FindObjectOfType<BGMManager>().GetComponent<AudioSource>();
             _seSource = FindObjectOfType<SeManager>().GetComponent<AudioSource>();
             if (_bgmSource == null || _seSource == null) return;
+            valumeValue = _bgmSource.volume;
             slider.value = valumeValue;
             controller
                 .Pushed

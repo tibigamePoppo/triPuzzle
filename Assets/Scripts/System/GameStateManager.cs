@@ -16,6 +16,8 @@ namespace System
     {
         [SerializeField]
         GeneratingPuzzle GeneratingPuzzleCs;
+
+        [SerializeField] private GameObject shadow;
         [SerializeField]
         GameObject ResultObject;
         private PieceArea pieceArea;
@@ -38,6 +40,7 @@ namespace System
             switch (state)
             {
                 case GameState.SetUp:
+                    shadow.SetActive(false);
                     ResultObject.SetActive(false);
                     GeneratingPuzzleCs.Generate(false);
                     ChangeState(GameState.InGame);
@@ -45,6 +48,7 @@ namespace System
                 case GameState.InGame:
                     break;
                 case GameState.Result:
+                    shadow.SetActive(true);
                     ResultObject.SetActive(true);
                     break;
                 default:

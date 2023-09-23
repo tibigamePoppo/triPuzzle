@@ -1,4 +1,6 @@
 using System;
+using System.Effect;
+using Audio;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -38,6 +40,7 @@ namespace Piece
             _prevParent = ParentObject.transform.parent;
             _canvasGroup.blocksRaycasts = false;
             ParentObject.transform.SetParent(_prevParent.parent, false);
+            SeManager.Instance.ShotSe(SeType.pieceRotate);
         }
 
         public void OnDrag(PointerEventData eventData)
@@ -63,7 +66,17 @@ namespace Piece
             CheckDroppable();
             if (!canDrop)
             {
+                SeManager.Instance.ShotSe(SeType.pieceError);
                 ResetPosition();
+            }
+            else
+            {
+                SeManager.Instance.ShotSe(SeType.pieceSet);
+                if (!isArea)
+                {
+                    var pos = Camera.main.ScreenToWorldPoint(Input.mousePosition + Camera.main.transform.forward * 10);
+                    EffectManager.Instance.InstanceEffect(EffectType.PieceSet, pos);
+                }
             }
             _canvasGroup.blocksRaycasts = true;
             canDrop = false;
