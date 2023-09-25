@@ -392,7 +392,6 @@ MonoBehaviour:
   Puzzle:
   - {fileID: 11400000, guid: 35ab1c7460be12149a8187df284062ab, type: 2}
   - {fileID: 11400000, guid: 4ff8eafe3566cc244b630db6e3b55312, type: 2}
-  - {fileID: 11400000, guid: 963a57392bea4694ab92bd9f8c46ebb2, type: 2}
   - {fileID: 11400000, guid: f4630790eab451640b2e001498999e71, type: 2}
   - {fileID: 11400000, guid: 91d202b4ade4a3a48b532e262408d51f, type: 2}
   - {fileID: 11400000, guid: 8337a5fda35eb5c4aa2cc00a342a2796, type: 2}
@@ -401,6 +400,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4fb9911b36c0d2942b60098aca471582, type: 2}
   - {fileID: 11400000, guid: e3db5e1b666efcd4eae3a99e1d1023e3, type: 2}
   - {fileID: 11400000, guid: 0b708f3faa12fa2468f8e0a60ff142f3, type: 2}
+  - {fileID: 11400000, guid: 963a57392bea4694ab92bd9f8c46ebb2, type: 2}
+  - {fileID: 11400000, guid: 86fd7580921ef3e42b10b5858a04f5f7, type: 2}
   PuzzleParentObject: {fileID: 1629379776}
   PuzzleTitle: {fileID: 1792822557}
   pieceCs: {fileID: 200240824}
