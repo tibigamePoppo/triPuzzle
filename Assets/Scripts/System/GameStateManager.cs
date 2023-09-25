@@ -27,6 +27,7 @@ namespace System
         private List<GameObject> ResetChildObjects;
         public Action DropPiece;
         private GameState CurrentState = GameState.SetUp;
+        [SerializeField] private GameObject[] hidePiece;
         void Start()
         {
             pieceArea = FindObjectOfType<PieceArea>();
@@ -70,7 +71,11 @@ namespace System
         {
             yield return new WaitForSeconds(1.5f);
             FindObjectOfType<CompleteImage>().ShowImage();
-            yield return new WaitForSeconds(1.5f);
+            foreach (var o in hidePiece)
+            {
+                o.SetActive(false);
+            }
+            yield return new WaitForSeconds(2.8f);
             ChangeState(GameState.Result);
         }
     }
