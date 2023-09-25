@@ -75,6 +75,7 @@ namespace Piece
                 if (!isArea)
                 {
                     var pos = Camera.main.ScreenToWorldPoint(Input.mousePosition + Camera.main.transform.forward * 10);
+                    pos = new Vector3(transform.parent.transform.position.x, transform.parent.transform.position.y, pos.z);
                     EffectManager.Instance.InstanceEffect(EffectType.PieceSet, pos);
                 }
             }
