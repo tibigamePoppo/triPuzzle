@@ -52,7 +52,7 @@ namespace Piece
         private Color randomColor()
         {
             int randomColorInt = 0;
-            randomColorInt = Random.Range(0, 6);
+            randomColorInt = Random.Range(0, 10);
             Color returnColor = default;
             switch (randomColorInt)
             {
@@ -73,6 +73,18 @@ namespace Piece
                     break;
                 case 5:
                     returnColor = new Color(228f / 255f, 168f / 255f, 192f / 255f);
+                    break;
+                case 6:
+                    returnColor = new Color(170f / 255f, 255f / 255f, 255f / 255f);
+                    break;
+                case 7:
+                    returnColor = new Color(221f / 255f, 255f / 255f, 170f / 255f);
+                    break;
+                case 8:
+                    returnColor = new Color(204f / 255f, 221f / 255f, 255f / 255f);
+                    break;
+                case 9:
+                    returnColor = new Color(221f / 255f, 187f / 255f, 255f / 255f);
                     break;
                 default:
                     returnColor = new Color(233f / 255f, 166f / 255f, 172f / 255f);

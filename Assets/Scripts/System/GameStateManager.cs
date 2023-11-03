@@ -43,7 +43,7 @@ namespace System
                 case GameState.SetUp:
                     shadow.SetActive(false);
                     ResultObject.SetActive(false);
-                    GeneratingPuzzleCs.Generate(false);
+                    GeneratingPuzzleCs.Generate();
                     ChangeState(GameState.InGame);
                     break;
                 case GameState.InGame:
