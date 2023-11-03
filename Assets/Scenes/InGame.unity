@@ -389,21 +389,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 581b942e3a7b5954e9621be9029c2857, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Puzzle:
+  _normalPuzzle:
   - {fileID: 11400000, guid: 35ab1c7460be12149a8187df284062ab, type: 2}
   - {fileID: 11400000, guid: 4ff8eafe3566cc244b630db6e3b55312, type: 2}
+  - {fileID: 11400000, guid: 86fd7580921ef3e42b10b5858a04f5f7, type: 2}
+  - {fileID: 11400000, guid: 963a57392bea4694ab92bd9f8c46ebb2, type: 2}
   - {fileID: 11400000, guid: f4630790eab451640b2e001498999e71, type: 2}
   - {fileID: 11400000, guid: 91d202b4ade4a3a48b532e262408d51f, type: 2}
   - {fileID: 11400000, guid: 8337a5fda35eb5c4aa2cc00a342a2796, type: 2}
   - {fileID: 11400000, guid: 5b565afcb451f944f89dfff47ba448a2, type: 2}
   - {fileID: 11400000, guid: 8ef1a6b02f673f347b26744ae83a51d0, type: 2}
   - {fileID: 11400000, guid: 4fb9911b36c0d2942b60098aca471582, type: 2}
-  - {fileID: 11400000, guid: e3db5e1b666efcd4eae3a99e1d1023e3, type: 2}
   - {fileID: 11400000, guid: 0b708f3faa12fa2468f8e0a60ff142f3, type: 2}
-  - {fileID: 11400000, guid: 963a57392bea4694ab92bd9f8c46ebb2, type: 2}
-  - {fileID: 11400000, guid: 86fd7580921ef3e42b10b5858a04f5f7, type: 2}
-  PuzzleParentObject: {fileID: 1845565098}
-  PuzzleTitle: {fileID: 1792822557}
+  - {fileID: 11400000, guid: e3db5e1b666efcd4eae3a99e1d1023e3, type: 2}
+  _hardPuzzle:
+  - {fileID: 11400000, guid: fac0a1826150b4e448d24cde52dd3b8a, type: 2}
+  - {fileID: 11400000, guid: 7fc5c79228fe80f42b274f0f91bcb7a4, type: 2}
+  _puzzleParentObject: {fileID: 1845565098}
+  _puzzleTitle: {fileID: 1792822557}
   pieceCs: {fileID: 200240824}
   backGroundSet: {fileID: 200240826}
 --- !u!4 &200240823
@@ -3019,6 +3022,7 @@ GameObject:
   - component: {fileID: 1990769059}
   - component: {fileID: 1990769058}
   - component: {fileID: 1990769060}
+  - component: {fileID: 1990769061}
   m_Layer: 5
   m_Name: PieceArea
   m_TagString: Untagged
@@ -3130,6 +3134,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2dbff2153bd781742ad3c9dca5d39b53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1990769061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1990769053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65d09a91dc9c5a1448aa95a01c546c23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2011878764
