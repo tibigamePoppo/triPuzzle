@@ -12,19 +12,24 @@ namespace Piece
         [SerializeField, Tooltip("お題のPuzzleDataすべてを格納する")]
         private List<PuzzleData> _hardPuzzle;
         private List<PuzzleData> _puzzleQueue;//格納されている順番にパズルを生成する
-        private int _currntPuzzleNumber = 0;
+        private static int _currntPuzzleNumber = 0;
         [SerializeField, Tooltip("生成するパズルの親のオブジェクト")]
         private GameObject _puzzleParentObject;
         [SerializeField, Tooltip("パズルのタイトルテキスト")]
         private TextMeshProUGUI _puzzleTitle;
         private GameObject _generatedPuzzleObject = null;
+        private static bool _initializePuzzleQueue = true;
         [SerializeField]
         SeparatePiece pieceCs;
         [SerializeField]
         BackGroundSet backGroundSet;
         private void Awake()
         {
-            PuzzleQueueBuild();
+            if(_initializePuzzleQueue)
+            {
+                PuzzleQueueBuild();
+                _initializePuzzleQueue = false;
+            }
         }
 
         public void Generate()
