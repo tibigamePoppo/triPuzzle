@@ -11,12 +11,17 @@ namespace Piece
         private GameObject PieceParent;
         [SerializeField]
         private GameObject PieceArea;
+        public int MaxSinglePieceCount = 3;
+        GeneratingPuzzle generatingPuzzle;
+        int pieceSize;
 
         private void Start()
         {
+            generatingPuzzle = GetComponent<GeneratingPuzzle>();
         }
         public void Separate(GameObject Puzzle)
         {
+            pieceSize = 0;
             var pieceParent = Puzzle.GetComponent<PieceParent>();
             Piece = pieceParent.getObject();
             foreach (var item in Piece)
@@ -45,6 +50,14 @@ namespace Piece
                     var pieceParentCs = newParent.GetComponent<PieceParent>();
                     pieceParentCs.setObject();
                     pieceParentCs.childPositionReset();
+
+                    if (newParent.transform.childCount.Equals(1))
+                        pieceSize++;
+                    if (pieceSize >= MaxSinglePieceCount)
+                    {
+                        Debug.Log($"ピースの再生成を行いました");
+                        generatingPuzzle.ReGenerate();
+                    }
                 }
             }
         }

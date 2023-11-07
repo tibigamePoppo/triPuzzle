@@ -11,14 +11,14 @@ namespace Piece
         private List<PuzzleData> _normalPuzzle;
         [SerializeField, Tooltip("お題のPuzzleDataすべてを格納する")]
         private List<PuzzleData> _hardPuzzle;
-        private List<PuzzleData> _puzzleQueue;//格納されている順番にパズルを生成する
+        private static List<PuzzleData> _puzzleQueue;//格納されている順番にパズルを生成する
         private static int _currntPuzzleNumber = 0;
         [SerializeField, Tooltip("生成するパズルの親のオブジェクト")]
         private GameObject _puzzleParentObject;
         [SerializeField, Tooltip("パズルのタイトルテキスト")]
         private TextMeshProUGUI _puzzleTitle;
         private GameObject _generatedPuzzleObject = null;
-        private static bool _initializePuzzleQueue = true;
+        public static bool _initializePuzzleQueue = true;
         [SerializeField]
         SeparatePiece pieceCs;
         [SerializeField]
@@ -42,8 +42,8 @@ namespace Piece
             var GeneratedPieceObject = Instantiate(_puzzleQueue[_currntPuzzleNumber].PuzzlePrefab, _puzzleParentObject.transform);
             _puzzleTitle.text = _puzzleQueue[_currntPuzzleNumber].PuzzleTitle;
             backGroundSet.setBackGround(_puzzleQueue[_currntPuzzleNumber]);
-            pieceCs.Separate(GeneratedPieceObject);
             _currntPuzzleNumber++;
+            pieceCs.Separate(GeneratedPieceObject);
             if(_currntPuzzleNumber >= _puzzleQueue.Count)
             {
                 _currntPuzzleNumber = 0;
@@ -64,10 +64,17 @@ namespace Piece
         }
         public void PuzzleQueueBuild()
         {
-            if(PlayerConfig.difficulty.Equals(Difficulty.Normal))
+            _currntPuzzleNumber = 0;
+            if (PlayerConfig.difficulty.Equals(Difficulty.Normal))
+            {
+                pieceCs.MaxSinglePieceCount = 3;
                 _puzzleQueue = _normalPuzzle;
+            }
             else if (PlayerConfig.difficulty.Equals(Difficulty.Hard))
+            {
+                pieceCs.MaxSinglePieceCount = 6;
                 _puzzleQueue = _hardPuzzle;
+            }
             for (int i = 0; i < _puzzleQueue.Count; i++)
             {
                 var tempData = new PuzzleData();
