@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d457174a4429714ca459cf8e809c496, type: 3}
+  m_Name: Cat
+  m_EditorClassIdentifier: 
+  PuzzlePrefab: {fileID: 2285230743974174298, guid: 82356da3add840b4c858a6555e7e70df, type: 3}
+  PuzzleTitle: "\u72AC"
+  PuzzleType: 1
