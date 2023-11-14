@@ -192,4 +192,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FadeBase: {fileID: 6821833256918809619}
   FadePerSpeed: 0.02
-  FadeDivisionNumber: 20
+  FadeDivisionNumber: 30

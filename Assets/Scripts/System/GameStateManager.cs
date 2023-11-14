@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Piece;
 using System.Effect;
+using TMPro;
 
 namespace System
 {
@@ -28,6 +30,11 @@ namespace System
         public Action DropPiece;
         private GameState CurrentState = GameState.SetUp;
         [SerializeField] private GameObject[] hidePiece;
+        [SerializeField, Tooltip("パズルのタイトルテキスト")]
+        private TextMeshProUGUI _puzzleTitleText;
+        [SerializeField, Tooltip("パズルのImage")]
+        private Image _puzzleImage;
+        public string _puzzleTile;
         void Start()
         {
             pieceArea = FindObjectOfType<PieceArea>();
@@ -49,6 +56,7 @@ namespace System
                 case GameState.InGame:
                     break;
                 case GameState.Result:
+                    _puzzleTitleText.text = _puzzleTile;
                     shadow.SetActive(true);
                     ResultObject.SetActive(true);
                     break;
