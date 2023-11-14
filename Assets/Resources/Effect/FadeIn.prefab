@@ -116,7 +116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FadeBase: {fileID: 7179959236412109012}
   FadePerSpeed: 0.02
-  FadeDivisionNumber: 20
+  FadeDivisionNumber: 30
 --- !u!1 &7179959236412109013
 GameObject:
   m_ObjectHideFlags: 0

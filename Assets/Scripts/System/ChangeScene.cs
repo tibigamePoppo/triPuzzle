@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UniRx;
 using System.Collections;
+using System.Effect;
 
 namespace System
 {
@@ -19,6 +20,7 @@ namespace System
                 .Where(pushed => pushed)
                 .Subscribe(_ =>
                 {
+                    EffectManager.Instance.InstanceEffect(EffectType.FadeIn, Vector3.zero);
                     StartCoroutine(Change());
                 }).AddTo(this);
         }

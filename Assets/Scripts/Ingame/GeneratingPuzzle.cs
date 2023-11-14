@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Ingame;
 using TMPro;
+using System;
+
 namespace Piece
 {
     public class GeneratingPuzzle : MonoBehaviour
@@ -19,6 +21,8 @@ namespace Piece
         private TextMeshProUGUI _puzzleTitle;
         private GameObject _generatedPuzzleObject = null;
         public static bool _initializePuzzleQueue = true;
+        [SerializeField]
+        private GameStateManager gameSateManager;
         [SerializeField]
         SeparatePiece pieceCs;
         [SerializeField]
@@ -40,7 +44,8 @@ namespace Piece
             }
             _generatedPuzzleObject = Instantiate(_puzzleQueue[_currntPuzzleNumber].PuzzlePrefab, _puzzleParentObject.transform);
             var GeneratedPieceObject = Instantiate(_puzzleQueue[_currntPuzzleNumber].PuzzlePrefab, _puzzleParentObject.transform);
-            _puzzleTitle.text = _puzzleQueue[_currntPuzzleNumber].PuzzleTitle;
+            gameSateManager._puzzleTile = _puzzleQueue[_currntPuzzleNumber].PuzzleTitle;
+            _puzzleTitle.text = "???";
             backGroundSet.setBackGround(_puzzleQueue[_currntPuzzleNumber]);
             _currntPuzzleNumber++;
             pieceCs.Separate(GeneratedPieceObject);
@@ -78,7 +83,7 @@ namespace Piece
             for (int i = 0; i < _puzzleQueue.Count; i++)
             {
                 var tempData = new PuzzleData();
-                int randomInt = Random.Range(0, _puzzleQueue.Count);
+                int randomInt = UnityEngine.Random.Range(0, _puzzleQueue.Count);
                 tempData = _puzzleQueue[i];
                 _puzzleQueue[i] = _puzzleQueue[randomInt];
                 _puzzleQueue[randomInt] = tempData;
