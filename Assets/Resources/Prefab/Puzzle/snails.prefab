@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5578181730623808344}
   - component: {fileID: 3976265175488427357}
   m_Layer: 0
-  m_Name: snails
+  m_Name: Snails
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

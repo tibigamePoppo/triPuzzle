@@ -12,6 +12,7 @@ namespace Piece
         [SerializeField]
         private GameObject PieceArea;
         public int MaxSinglePieceCount = 3;
+        public int separatePieceSize = 3;
         GeneratingPuzzle generatingPuzzle;
         int pieceSize;
 
@@ -30,7 +31,7 @@ namespace Piece
                 List<GameObject> separeted = new List<GameObject>();
                 if (!info.getIsSeparated)
                 {
-                    separeted = info.getNextPiece(3);
+                    separeted = info.getNextPiece(separatePieceSize);
                 }
                 if (separeted.Count != 0)
                 {
@@ -56,7 +57,7 @@ namespace Piece
                     if (pieceSize >= MaxSinglePieceCount)
                     {
                         Debug.Log($"ピースの再生成を行いました");
-                        generatingPuzzle.ReGenerate();
+                        //generatingPuzzle.ReGenerate();
                     }
                 }
             }

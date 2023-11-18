@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 187035373002080444}
   - component: {fileID: 2445697698192527992}
   m_Layer: 0
-  m_Name: pen
+  m_Name: Pen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

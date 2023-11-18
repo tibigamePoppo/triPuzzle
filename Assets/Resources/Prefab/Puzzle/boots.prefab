@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 1158067898010223873}
   - component: {fileID: 115490881087193024}
   m_Layer: 0
-  m_Name: boots
+  m_Name: Boots
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

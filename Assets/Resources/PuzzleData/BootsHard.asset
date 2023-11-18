@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d457174a4429714ca459cf8e809c496, type: 3}
+  m_Name: BootsHard
+  m_EditorClassIdentifier: 
+  PuzzlePrefab: {fileID: 9048375779790225976, guid: 903b14e80f98a24489b40b53a88926e7, type: 3}
+  PuzzleTitle: "\u9577\u9774"
+  PuzzleType: 2

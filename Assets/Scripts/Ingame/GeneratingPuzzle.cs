@@ -27,6 +27,7 @@ namespace Piece
         SeparatePiece pieceCs;
         [SerializeField]
         BackGroundSet backGroundSet;
+        static int _reGenerateCount = 0;
         private void Awake()
         {
             if(_initializePuzzleQueue)
@@ -35,7 +36,6 @@ namespace Piece
                 _initializePuzzleQueue = false;
             }
         }
-
         public void Generate()
         {
             if (_normalPuzzle.Count == 0)
@@ -58,6 +58,12 @@ namespace Piece
 
         public void ReGenerate()
         {
+            _reGenerateCount++;
+            if (_reGenerateCount > 10)
+            {
+                _reGenerateCount = 0;
+                return;
+            }
             if (_generatedPuzzleObject == null)
             {
                 Debug.LogError("GeneratedPuzzleObjectÇ™ê›íËÇ≥ÇÍÇƒÇ¢Ç‹ÇπÇÒ");
@@ -73,11 +79,13 @@ namespace Piece
             if (PlayerConfig.difficulty.Equals(Difficulty.Normal))
             {
                 pieceCs.MaxSinglePieceCount = 3;
+                pieceCs.separatePieceSize = 3;
                 _puzzleQueue = _normalPuzzle;
             }
             else if (PlayerConfig.difficulty.Equals(Difficulty.Hard))
             {
-                pieceCs.MaxSinglePieceCount = 6;
+                pieceCs.MaxSinglePieceCount = 10;
+                pieceCs.separatePieceSize = 5;
                 _puzzleQueue = _hardPuzzle;
             }
             for (int i = 0; i < _puzzleQueue.Count; i++)
