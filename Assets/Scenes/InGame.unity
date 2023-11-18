@@ -403,12 +403,29 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4fb9911b36c0d2942b60098aca471582, type: 2}
   - {fileID: 11400000, guid: 0b708f3faa12fa2468f8e0a60ff142f3, type: 2}
   - {fileID: 11400000, guid: e3db5e1b666efcd4eae3a99e1d1023e3, type: 2}
+  - {fileID: 11400000, guid: 37a90e1d8ab8db04aad9a4b20a9efc61, type: 2}
+  - {fileID: 11400000, guid: abb1736bd11f8c445886a00261136bdf, type: 2}
+  - {fileID: 11400000, guid: 9118152f736835043982140e49e72f0c, type: 2}
+  - {fileID: 11400000, guid: 83418c3382d75214d9df9b934ba481a7, type: 2}
+  - {fileID: 11400000, guid: 86fb8e8db85f9df4fb9be5638e735afc, type: 2}
   _hardPuzzle:
   - {fileID: 11400000, guid: fac0a1826150b4e448d24cde52dd3b8a, type: 2}
-  - {fileID: 11400000, guid: 7fc5c79228fe80f42b274f0f91bcb7a4, type: 2}
+  - {fileID: 11400000, guid: 4b16f4e9fe207d94298e972f720a3b5c, type: 2}
   - {fileID: 11400000, guid: 5d9ab46e2f9205a49868d4c91439ef3b, type: 2}
-  - {fileID: 11400000, guid: 7f1d4be8f9ce5754d857f796ec02df25, type: 2}
   - {fileID: 11400000, guid: 84b599feb4261a640bdc44f1be756302, type: 2}
+  - {fileID: 11400000, guid: 1737b52ba5dbf15429c878db6cd4519a, type: 2}
+  - {fileID: 11400000, guid: 7f1d4be8f9ce5754d857f796ec02df25, type: 2}
+  - {fileID: 11400000, guid: ad41be2571a4e9a4fbcbffde14e107cd, type: 2}
+  - {fileID: 11400000, guid: 7fc5c79228fe80f42b274f0f91bcb7a4, type: 2}
+  - {fileID: 11400000, guid: c1e1d459024a5d34ea47ed0e6e773c93, type: 2}
+  - {fileID: 11400000, guid: 92c12b6a785a33340b501e1e96788a0c, type: 2}
+  - {fileID: 11400000, guid: 572e52904512b64458bc93644709dfa8, type: 2}
+  - {fileID: 11400000, guid: d7f02421e03b7c043ade1c170424f9ec, type: 2}
+  - {fileID: 11400000, guid: 46d239fc1cbd4f94cb0a53e84752fa86, type: 2}
+  - {fileID: 11400000, guid: 8cae925aedfbc0542a06846b3124b377, type: 2}
+  - {fileID: 11400000, guid: b6cc57cce95514d4aa570f3b7699e22e, type: 2}
+  - {fileID: 11400000, guid: 0c01c5ff19f8bd548b8e8757b22afe3e, type: 2}
+  - {fileID: 11400000, guid: 03a4ec3e7f139484ea8ec47df6acc478, type: 2}
   _puzzleParentObject: {fileID: 1845565098}
   _puzzleTitle: {fileID: 1792822557}
   gameSateManager: {fileID: 200240825}

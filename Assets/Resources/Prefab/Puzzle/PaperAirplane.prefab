@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2146269013646540023}
   - component: {fileID: 7491293231040935949}
   m_Layer: 0
-  m_Name: 'paperAirplane  '
+  m_Name: PaperAirplane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

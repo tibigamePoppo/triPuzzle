@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6318176672648091500}
   - component: {fileID: 3366856025832415814}
   m_Layer: 0
-  m_Name: crane
+  m_Name: Crane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

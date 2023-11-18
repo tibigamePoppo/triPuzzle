@@ -16,6 +16,7 @@ namespace Ingame.Tutorial
         Stage4 = 3,
         Stage5 = 4,
         Stage6 = 5,
+        Stage7 = 6,
     }
     public class TutorialManager : MonoBehaviour
     {
@@ -36,6 +37,9 @@ namespace Ingame.Tutorial
         List<GameObject> testPiece;
         [SerializeField]
         private GameObject _resultPanel;
+        [SerializeField]
+        private PieceArea _pieceArea;
+
         void Start()
         {
             foreach (var item in testPiece)
@@ -67,9 +71,12 @@ namespace Ingame.Tutorial
                         case TutorialStage.Stage5://すべてのピースがはまるとパズルがクリアできる説明
                             StartCoroutine(NextClick());
                             break;
-                        case TutorialStage.Stage6://出来上がってイラストを見てチュートリアル終了
+                        case TutorialStage.Stage6://パズルに挑戦
+                            StartCoroutine(NextClick());
+                            break;
+                        case TutorialStage.Stage7://出来上がってイラストを見てチュートリアル終了
                             _resultPanel.SetActive(true);
-                        break;
+                            break;
                         default:
                             break;
                     }
@@ -89,9 +96,17 @@ namespace Ingame.Tutorial
 
         IEnumerator NextClick()
         {
-            yield return new WaitForSeconds(1f);
-            yield return new WaitUntil(() => Input.GetKey(KeyCode.Mouse0));
-            NextStage();
+            if(!_tutorialStage.Value.Equals(TutorialStage.Stage6))
+            {
+                yield return new WaitForSeconds(1f);
+                yield return new WaitUntil(() => Input.GetKeyUp(KeyCode.Mouse0));
+                NextStage();
+            }
+            else
+            {
+                yield return new WaitUntil(() => _pieceArea.isAllUsePiece());
+                NextStage();
+            }
         }
     }
 }
