@@ -5,26 +5,29 @@ namespace Piece
 {
     public class PieceSlot : Droppable
     {
-        [SerializeField] private int pieceNum;
         private GameObject _pieceSetArea;
+        private PieceInfo _pieceInfo;
 
-        public int GetPieceNum() { return pieceNum;} 
-        
         private void Start()
         {
             _pieceSetArea = GameObject.FindGameObjectWithTag("SetArea");
+            _pieceInfo = GetComponent<PieceInfo>();
         }
         public override void OnDrop(PointerEventData eventData)
         {
             base.OnDrop(eventData);
-            var card = eventData.pointerDrag.GetComponent<PieceMovement>(); // ドラッグしてきた情報からCardMovementを取得
-            if (card != null) // もしカードがあれば、
+            var cardTransform = eventData.pointerDrag.transform.parent; // ドラッグしてきた情報からCardMovementを取得
+            if (cardTransform.gameObject.TryGetComponent<PieceParent>(out var cardParent)) // もしカードがあれば、
             {
-                Debug.Log("位置の修正");
-                card.toPieceNum = pieceNum;
-                card.ParentObject.transform.SetParent(_pieceSetArea.transform, false);
-                card.ParentObject.transform.position = gameObject.transform.position - card.PiecePosition - new Vector3(0f, 0f, 1f); // カードの座標を修正する
-                card.isArea = false;
+                if (_pieceInfo.getRotation == cardParent.selectedPieceRotation)
+                {
+                    //card.toPieceRotation = _pieceInfo.getRotation;
+                    cardTransform.SetParent(_pieceSetArea.transform, false);
+                    cardTransform.position = gameObject.transform.position - cardParent.PiecePosition - new Vector3(0f, 0f, 1f); // カードの座標を修正する
+                    if (cardParent.isArea) cardParent.changeArea = true;
+                    cardParent.isArea = false;
+                }
+                else cardParent.canDrop = false;
             }
         }
     }
