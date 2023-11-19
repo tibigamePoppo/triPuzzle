@@ -8,13 +8,12 @@ namespace Piece
         public override void OnDrop(PointerEventData eventData)
         {
             base.OnDrop(eventData);
-            var card = eventData.pointerDrag.GetComponent<PieceMovement>(); // ドラッグしてきた情報からCardMovementを取得
-            if (card != null) // もしカードがあれば、
+            var cardTransform = eventData.pointerDrag.transform.parent;
+            if (cardTransform.gameObject.TryGetComponent<PieceParent>(out var cardParent)) // もしカードがあれば、
             {
-                Debug.Log("位置の修正");
-                card.ParentObject.transform.SetParent(gameObject.transform, false);
-                card.ParentObject.transform.position = new Vector3(0f, 0f, 0f); // カードの座標を修正する
-                card.isArea = true;
+                cardTransform.SetParent(gameObject.transform, false);
+                cardTransform.position = new Vector3(0f, 0f, 0f); // カードの座標を修正する
+                cardParent.isArea = true;
             }
         }
 

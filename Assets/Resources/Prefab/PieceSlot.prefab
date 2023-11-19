@@ -41,7 +41,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -15.96, y: 4.73}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 57.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3478162787874346937
@@ -133,7 +133,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a6951a86edf4cc4f85cc6aba00f1f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pieceNum: 0
 --- !u!60 &4566585515686765974
 PolygonCollider2D:
   m_ObjectHideFlags: 0

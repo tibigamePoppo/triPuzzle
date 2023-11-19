@@ -21,7 +21,27 @@ namespace Piece
             {
                 Debug.LogError("nextPieceÇÃêîÇ™0å¬Ç≈Ç∑");
             }
+            //ReflectRotation();
         }
+
+        public void RotatePiece()
+        {
+            Rotation += 270;
+            ReflectRotation();
+        }
+
+        public void InvertPiece()
+        {
+            Rotation += 180;
+            ReflectRotation();
+        }
+
+        private void ReflectRotation()
+        {
+            Rotation %= 360;
+            //gameObject.transform.rotation = Quaternion.Euler(0, 0, -90 * Rotation);
+        }
+        
         private void Separeted()
         {
             isSeparated = true;
@@ -32,7 +52,6 @@ namespace Piece
         /// </summary>
         public List<GameObject> getNextPiece(int count)
         {
-
             int loop = 0;
             while (true)
             {

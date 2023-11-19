@@ -1,11 +1,27 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System.Effect;
+using Audio;
+
 namespace Piece
 {
     public class PieceParent : MonoBehaviour
     {
         [SerializeField]
         private List<GameObject> ChildPiece;
+        public bool canDrop;
+        public bool changeArea;
+        public bool isArea = true;
+        private CanvasGroup _canvasGroup;
+        private Vector3 _prevPos;
+        private Transform _prevParent;
+        public Vector3 PiecePosition { get; private set; }
+        public int selectedPieceRotation;
+
+        private void Start()
+        {
+            _canvasGroup = gameObject.GetComponent<CanvasGroup>();
+        }
 
         public List<GameObject> getObject()
         {
@@ -36,7 +52,7 @@ namespace Piece
             }
         }
 
-        public bool CheckCollider()
+        private bool CheckCollider()
         {
             foreach (var item in ChildPiece)
             {
@@ -52,6 +68,73 @@ namespace Piece
                 }
             }
             return true;
+        }
+
+        public void RotatePieces()
+        {
+            gameObject.transform.Rotate(0, 0, 270f);
+            foreach (var piece in ChildPiece)
+            {
+                piece.GetComponent<PieceInfo>().RotatePiece();
+            }
+        }
+
+        private void SetRotatable(bool able)
+        {
+            foreach (var piece in ChildPiece)
+            {
+                piece.GetComponent<PieceMovement>().canRotate = able;
+            }
+        }
+
+        public void SetPrevParent(Vector3 prev, Vector3 correct)
+        {
+            _prevPos = prev;
+            PiecePosition = correct;
+            _prevParent = gameObject.transform.parent;
+            _canvasGroup.blocksRaycasts = false;
+            gameObject.transform.SetParent(_prevParent.parent, false);
+        }
+
+        public void PlacePiece()
+        {
+            var rotatable = false;
+            if (canDrop && !isArea) canDrop = CheckCollider();
+            
+            if (isArea) rotatable = true;
+            
+            if (!canDrop)
+            {
+                if (changeArea) rotatable = true;
+                SeManager.Instance.ShotSe(SeType.pieceError);
+                ResetPosition();
+            }
+            else
+            {
+                SeManager.Instance.ShotSe(SeType.pieceSet);
+                if (!isArea)
+                {
+                    if (Camera.main != null)
+                    {
+                        var pos = Camera.main.ScreenToWorldPoint(Input.mousePosition +
+                                                                 Camera.main.transform.forward * 10);
+                        var position = gameObject.transform.position;
+                        pos = new Vector3(position.x, position.y, pos.z);
+                        EffectManager.Instance.InstanceEffect(EffectType.PieceSet, pos);
+                    }
+                }
+            }
+
+            _canvasGroup.blocksRaycasts = true;
+            changeArea = false;
+            canDrop = false;
+            SetRotatable(rotatable);
+        }
+
+        private void ResetPosition()
+        {
+            gameObject.transform.SetParent(_prevParent.transform, false);
+            gameObject.transform.position = _prevPos;
         }
     }
 }
