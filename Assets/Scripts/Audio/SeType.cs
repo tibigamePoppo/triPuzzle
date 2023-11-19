@@ -9,6 +9,7 @@ namespace Audio
         pieceError,
         pieceSet,
         pieceRotate,
+        complete,
         systemTap,
         stageClear,
     }

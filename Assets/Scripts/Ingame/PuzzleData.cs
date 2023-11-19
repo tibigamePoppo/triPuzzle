@@ -7,6 +7,7 @@ namespace Ingame
     {
         public GameObject PuzzlePrefab;
         public string PuzzleTitle;
+        public Sprite PuzzleImage;
         public PuzzleType PuzzleType;
     }
 }

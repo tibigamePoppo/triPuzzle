@@ -45,6 +45,7 @@ namespace Piece
             _generatedPuzzleObject = Instantiate(_puzzleQueue[_currntPuzzleNumber].PuzzlePrefab, _puzzleParentObject.transform);
             var GeneratedPieceObject = Instantiate(_puzzleQueue[_currntPuzzleNumber].PuzzlePrefab, _puzzleParentObject.transform);
             gameSateManager._puzzleTile = _puzzleQueue[_currntPuzzleNumber].PuzzleTitle;
+            gameSateManager.puzzleImage = _puzzleQueue[_currntPuzzleNumber].PuzzleImage;
             _puzzleTitle.text = "???";
             backGroundSet.setBackGround(_puzzleQueue[_currntPuzzleNumber]);
             _currntPuzzleNumber++;

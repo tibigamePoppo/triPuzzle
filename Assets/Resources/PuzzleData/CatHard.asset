@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: CatHard
   m_EditorClassIdentifier: 
   PuzzlePrefab: {fileID: 2874533247059970151, guid: 1716cab84cb4bce4b8bf05e50d9262f7, type: 3}
-  PuzzleTitle: "\u72AC"
+  PuzzleTitle: "\u30CD\u30B3"
+  PuzzleImage: {fileID: 21300000, guid: 5ae94f4cd8dd3124d9443b7e998de9b7, type: 3}
   PuzzleType: 1

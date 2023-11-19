@@ -4,5 +4,6 @@ public enum EffectType
     FadeOut,
     ScreenTap,
     PieceSet,
-    CompletePuzzle
+    CompletePuzzle,
+    CompleteParty
 }

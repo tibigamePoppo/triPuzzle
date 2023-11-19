@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using Piece;
 using System.Effect;
 using TMPro;
+using Audio;
 
 namespace System
 {
@@ -12,6 +13,7 @@ namespace System
     {
         SetUp,
         InGame,
+        Complete,
         Result,
     }
     public class GameStateManager : MonoBehaviour
@@ -32,9 +34,17 @@ namespace System
         [SerializeField] private GameObject[] hidePiece;
         [SerializeField, Tooltip("パズルのタイトルテキスト")]
         private TextMeshProUGUI _puzzleTitleText;
-        [SerializeField, Tooltip("パズルのImage")]
-        private Image _puzzleImage;
+        [Header("パズル完成UI")]
+        [SerializeField, Tooltip("パズルのタイトルe")]
+        private TextMeshProUGUI __puzzleTitle;
+        [SerializeField, Tooltip("パズルの完成イメージ")]
+        private Image __puzzleImage;
+        [SerializeField, Tooltip("パズルの完成時に表示するオブジェクト一覧")]
+        private GameObject _puzzleCompleteObject;
+        [HideInInspector]
         public string _puzzleTile;
+        [HideInInspector]
+        public Sprite puzzleImage;
         void Start()
         {
             pieceArea = FindObjectOfType<PieceArea>();
@@ -50,14 +60,23 @@ namespace System
                 case GameState.SetUp:
                     shadow.SetActive(false);
                     ResultObject.SetActive(false);
+                    _puzzleCompleteObject.SetActive(false);
                     GeneratingPuzzleCs.Generate();
                     ChangeState(GameState.InGame);
                     break;
                 case GameState.InGame:
                     break;
-                case GameState.Result:
+                case GameState.Complete:
+                    __puzzleTitle.text = _puzzleTile;
+                    __puzzleImage.sprite = puzzleImage;
                     _puzzleTitleText.text = _puzzleTile;
+                    SeManager.Instance.ShotSe(SeType.complete);
+                    EffectManager.Instance.InstanceEffect(EffectType.CompleteParty, Vector3.zero);
+                    _puzzleCompleteObject.SetActive(true);
                     shadow.SetActive(true);
+                    break;
+                case GameState.Result:
+                    _puzzleCompleteObject.SetActive(false);
                     ResultObject.SetActive(true);
                     break;
                 default:
@@ -83,7 +102,10 @@ namespace System
             {
                 o.SetActive(false);
             }
-            yield return new WaitForSeconds(2.8f);
+            yield return new WaitForSeconds(2f);
+            ChangeState(GameState.Complete);
+            yield return new WaitForSeconds(1f);
+            yield return new WaitUntil(() => Input.anyKey);
             ChangeState(GameState.Result);
         }
     }
