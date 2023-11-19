@@ -15,6 +15,8 @@ namespace System.Effect
         private GameObject PieceSetEffect;
         [SerializeField]
         private GameObject CompletePuzzleEffect;
+        [SerializeField]
+        private GameObject CompletePartyEffect;
 
         private void Awake()
         {
@@ -48,6 +50,10 @@ namespace System.Effect
                 case EffectType.CompletePuzzle:
                     var CompletePuzzle = Instantiate(CompletePuzzleEffect, InstancePosition, Quaternion.identity);
                     Destroy(CompletePuzzle, 3f);
+                    break;
+                case EffectType.CompleteParty:
+                    var CompleteParty = Instantiate(CompletePartyEffect, InstancePosition, Quaternion.identity);
+                    //Destroy(CompleteParty, 4f);
                     break;
                 default:
                     break;

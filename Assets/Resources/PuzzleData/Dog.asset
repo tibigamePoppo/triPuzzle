@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Dog
   m_EditorClassIdentifier: 
   PuzzlePrefab: {fileID: 8359607705550218323, guid: 93523fe805e4fa241b14d2050766584e, type: 3}
-  PuzzleTitle: "\u72AC"
+  PuzzleTitle: "\u30A4\u30CC"
+  PuzzleImage: {fileID: 21300000, guid: 7933f0ee96c14364985c4e3357f5aca9, type: 3}
   PuzzleType: 2
