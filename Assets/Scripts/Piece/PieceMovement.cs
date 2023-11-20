@@ -9,7 +9,7 @@ namespace Piece
     {
         private GameObject _parentObject;
         private PieceParent _pieceParent;
-        private GameStateManager _stateManager;
+        private GameObject _stateManager;
         public bool canRotate = true;
         private bool _isTap;
         private CanvasGroup _canvasGroup;
@@ -21,7 +21,7 @@ namespace Piece
         {
             _parentObject = transform.parent.gameObject;
             _pieceParent = _parentObject.GetComponent<PieceParent>();
-            _stateManager = FindObjectOfType<GameStateManager>();
+            _stateManager = GameObject.FindWithTag("Manager");
             _pieceInfo = GetComponent<PieceInfo>();
         }
         
@@ -71,7 +71,7 @@ namespace Piece
         public void OnEndDrag(PointerEventData eventData)
         {
             _pieceParent.PlacePiece();
-            _stateManager.DropPiece.Invoke();
+            _stateManager.GetComponent<IDropObservable>().CheckCompletePuzzle();
         }
     }
 }

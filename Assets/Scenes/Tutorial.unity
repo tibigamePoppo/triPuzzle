@@ -510,6 +510,42 @@ RectTransform:
   m_AnchoredPosition: {x: 528, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &167326508
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 167326509}
+  m_Layer: 5
+  m_Name: Stage7
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &167326509
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167326508}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 945075973}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &200240821
 GameObject:
   m_ObjectHideFlags: 0
@@ -524,7 +560,7 @@ GameObject:
   - component: {fileID: 200240826}
   m_Layer: 0
   m_Name: Manager
-  m_TagString: Untagged
+  m_TagString: Manager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -593,6 +629,7 @@ MonoBehaviour:
   _puzzleParentObject: {fileID: 1845565098}
   _puzzleTitle: {fileID: 1792822557}
   backGroundSet: {fileID: 200240826}
+  PazzlePosition: {fileID: 2011878765}
   testPiece:
   - {fileID: 1096144369}
   - {fileID: 291796288}
@@ -602,6 +639,9 @@ MonoBehaviour:
   - {fileID: 1813982076}
   _resultPanel: {fileID: 44611071}
   _pieceArea: {fileID: 1990769060}
+  hidePiece:
+  - {fileID: 1845565098}
+  - {fileID: 2011878764}
 --- !u!1 &290480340
 GameObject:
   m_ObjectHideFlags: 0
@@ -639,9 +679,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37e959bec0ad2054baf36013f4409d44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canDrop: 0
-  isArea: 0
-  toPieceNum: 3
+  canRotate: 1
 --- !u!50 &290480342
 Rigidbody2D:
   serializedVersion: 4
@@ -802,7 +840,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a6951a86edf4cc4f85cc6aba00f1f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pieceNum: 3
 --- !u!1 &291796288
 GameObject:
   m_ObjectHideFlags: 0
@@ -910,6 +947,10 @@ MonoBehaviour:
   ChildPiece:
   - {fileID: 1946077833}
   - {fileID: 845264242}
+  canDrop: 0
+  changeArea: 0
+  isArea: 1
+  selectedPieceRotation: 0
 --- !u!1 &318889811
 GameObject:
   m_ObjectHideFlags: 0
@@ -1298,6 +1339,10 @@ MonoBehaviour:
   ChildPiece:
   - {fileID: 1043912076}
   - {fileID: 754730079}
+  canDrop: 0
+  changeArea: 0
+  isArea: 1
+  selectedPieceRotation: 0
 --- !u!1 &350801987
 GameObject:
   m_ObjectHideFlags: 0
@@ -1728,6 +1773,42 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &626083625
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 626083626}
+  m_Layer: 5
+  m_Name: Stage9
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &626083626
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 626083625}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 945075973}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &690266471
 GameObject:
   m_ObjectHideFlags: 0
@@ -1880,9 +1961,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37e959bec0ad2054baf36013f4409d44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canDrop: 0
-  isArea: 0
-  toPieceNum: 0
+  canRotate: 1
 --- !u!50 &704586704
 Rigidbody2D:
   serializedVersion: 4
@@ -2042,7 +2121,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a6951a86edf4cc4f85cc6aba00f1f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pieceNum: 0
 --- !u!1 &719033870
 GameObject:
   m_ObjectHideFlags: 0
@@ -2292,9 +2370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37e959bec0ad2054baf36013f4409d44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canDrop: 0
-  isArea: 0
-  toPieceNum: 3
+  canRotate: 1
 --- !u!50 &725525179
 Rigidbody2D:
   serializedVersion: 4
@@ -2453,7 +2529,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a6951a86edf4cc4f85cc6aba00f1f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pieceNum: 3
 --- !u!1 &742237989
 GameObject:
   m_ObjectHideFlags: 0
@@ -2568,9 +2643,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37e959bec0ad2054baf36013f4409d44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canDrop: 0
-  isArea: 0
-  toPieceNum: 2
+  canRotate: 1
 --- !u!50 &754730081
 Rigidbody2D:
   serializedVersion: 4
@@ -2729,7 +2802,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a6951a86edf4cc4f85cc6aba00f1f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pieceNum: 2
 --- !u!1 &772806401
 GameObject:
   m_ObjectHideFlags: 0
@@ -2914,6 +2986,10 @@ MonoBehaviour:
   ChildPiece:
   - {fileID: 2143272847}
   - {fileID: 1785605493}
+  canDrop: 0
+  changeArea: 0
+  isArea: 1
+  selectedPieceRotation: 0
 --- !u!1 &829648361
 GameObject:
   m_ObjectHideFlags: 0
@@ -3086,9 +3162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37e959bec0ad2054baf36013f4409d44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canDrop: 0
-  isArea: 0
-  toPieceNum: 3
+  canRotate: 1
 --- !u!50 &845264244
 Rigidbody2D:
   serializedVersion: 4
@@ -3247,7 +3321,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a6951a86edf4cc4f85cc6aba00f1f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pieceNum: 3
 --- !u!1 &855003790
 GameObject:
   m_ObjectHideFlags: 0
@@ -3560,7 +3633,9 @@ RectTransform:
   - {fileID: 1051538834}
   - {fileID: 166011537}
   - {fileID: 1876938007}
+  - {fileID: 167326509}
   - {fileID: 1976375253}
+  - {fileID: 626083626}
   m_Father: {fileID: 320324572}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3589,7 +3664,9 @@ MonoBehaviour:
   - {fileID: 1051538833}
   - {fileID: 166011536}
   - {fileID: 1876938006}
+  - {fileID: 167326508}
   - {fileID: 1976375252}
+  - {fileID: 626083625}
 --- !u!1 &950038202
 GameObject:
   m_ObjectHideFlags: 0
@@ -3703,9 +3780,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37e959bec0ad2054baf36013f4409d44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canDrop: 0
-  isArea: 0
-  toPieceNum: 1
+  canRotate: 1
 --- !u!50 &967473402
 Rigidbody2D:
   serializedVersion: 4
@@ -3865,7 +3940,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a6951a86edf4cc4f85cc6aba00f1f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pieceNum: 1
 --- !u!1 &977134569
 GameObject:
   m_ObjectHideFlags: 0
@@ -4234,9 +4308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37e959bec0ad2054baf36013f4409d44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canDrop: 0
-  isArea: 0
-  toPieceNum: 3
+  canRotate: 1
 --- !u!50 &1043912078
 Rigidbody2D:
   serializedVersion: 4
@@ -4396,7 +4468,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a6951a86edf4cc4f85cc6aba00f1f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pieceNum: 3
 --- !u!1 &1046411025
 GameObject:
   m_ObjectHideFlags: 0
@@ -4513,9 +4584,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37e959bec0ad2054baf36013f4409d44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canDrop: 0
-  isArea: 0
-  toPieceNum: 2
+  canRotate: 1
 --- !u!50 &1088294016
 Rigidbody2D:
   serializedVersion: 4
@@ -4675,7 +4744,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a6951a86edf4cc4f85cc6aba00f1f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pieceNum: 2
 --- !u!1 &1096144369
 GameObject:
   m_ObjectHideFlags: 0
@@ -4783,6 +4851,10 @@ MonoBehaviour:
   ChildPiece:
   - {fileID: 704586702}
   - {fileID: 725525177}
+  canDrop: 0
+  changeArea: 0
+  isArea: 1
+  selectedPieceRotation: 0
 --- !u!1 &1104091061
 GameObject:
   m_ObjectHideFlags: 0
@@ -5080,9 +5152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37e959bec0ad2054baf36013f4409d44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canDrop: 0
-  isArea: 0
-  toPieceNum: 2
+  canRotate: 1
 --- !u!50 &1158463607
 Rigidbody2D:
   serializedVersion: 4
@@ -5221,7 +5291,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a6951a86edf4cc4f85cc6aba00f1f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pieceNum: 2
 --- !u!1 &1176390401
 GameObject:
   m_ObjectHideFlags: 0
@@ -5805,9 +5874,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37e959bec0ad2054baf36013f4409d44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canDrop: 0
-  isArea: 0
-  toPieceNum: 1
+  canRotate: 1
 --- !u!50 &1413417549
 Rigidbody2D:
   serializedVersion: 4
@@ -5968,7 +6035,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a6951a86edf4cc4f85cc6aba00f1f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pieceNum: 1
 --- !u!1 &1424327764
 GameObject:
   m_ObjectHideFlags: 0
@@ -6557,6 +6623,10 @@ MonoBehaviour:
   - {fileID: 1413417547}
   - {fileID: 2006154157}
   - {fileID: 290480340}
+  canDrop: 0
+  changeArea: 0
+  isArea: 1
+  selectedPieceRotation: 0
 --- !u!1 &1532165461
 GameObject:
   m_ObjectHideFlags: 0
@@ -7777,9 +7847,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37e959bec0ad2054baf36013f4409d44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canDrop: 0
-  isArea: 0
-  toPieceNum: 3
+  canRotate: 1
 --- !u!50 &1785605496
 Rigidbody2D:
   serializedVersion: 4
@@ -7918,7 +7986,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a6951a86edf4cc4f85cc6aba00f1f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pieceNum: 3
 --- !u!1 &1792822555
 GameObject:
   m_ObjectHideFlags: 0
@@ -8373,6 +8440,10 @@ MonoBehaviour:
   ChildPiece:
   - {fileID: 967473400}
   - {fileID: 1158463604}
+  canDrop: 0
+  changeArea: 0
+  isArea: 1
+  selectedPieceRotation: 0
 --- !u!1 &1840617310
 GameObject:
   m_ObjectHideFlags: 0
@@ -8694,9 +8765,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37e959bec0ad2054baf36013f4409d44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canDrop: 0
-  isArea: 0
-  toPieceNum: 2
+  canRotate: 1
 --- !u!50 &1946077835
 Rigidbody2D:
   serializedVersion: 4
@@ -8857,7 +8926,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a6951a86edf4cc4f85cc6aba00f1f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pieceNum: 2
 --- !u!1 &1961041577
 GameObject:
   m_ObjectHideFlags: 0
@@ -8944,7 +9012,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1976375253}
   m_Layer: 5
-  m_Name: Stage7
+  m_Name: Stage8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8965,7 +9033,7 @@ RectTransform:
   - {fileID: 988673690}
   - {fileID: 994565983}
   m_Father: {fileID: 945075973}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9244,9 +9312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37e959bec0ad2054baf36013f4409d44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canDrop: 0
-  isArea: 0
-  toPieceNum: 0
+  canRotate: 1
 --- !u!50 &2006154159
 Rigidbody2D:
   serializedVersion: 4
@@ -9406,7 +9472,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a6951a86edf4cc4f85cc6aba00f1f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pieceNum: 0
 --- !u!1 &2011878764
 GameObject:
   m_ObjectHideFlags: 0
@@ -9836,9 +9901,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37e959bec0ad2054baf36013f4409d44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canDrop: 0
-  isArea: 0
-  toPieceNum: 1
+  canRotate: 1
 --- !u!50 &2143272849
 Rigidbody2D:
   serializedVersion: 4
@@ -9998,4 +10061,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a6951a86edf4cc4f85cc6aba00f1f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pieceNum: 1

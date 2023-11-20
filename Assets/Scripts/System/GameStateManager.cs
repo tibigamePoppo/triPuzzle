@@ -14,7 +14,7 @@ namespace System
         InGame,
         Result,
     }
-    public class GameStateManager : MonoBehaviour
+    public class GameStateManager : MonoBehaviour, IDropObservable
     {
         [SerializeField]
         GeneratingPuzzle GeneratingPuzzleCs;
@@ -65,7 +65,7 @@ namespace System
             }
         }
 
-        private void CheckCompletePuzzle()
+        public void CheckCompletePuzzle()
         {
             if(pieceArea.isAllUsePiece())
             {
