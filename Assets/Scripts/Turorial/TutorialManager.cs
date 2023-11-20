@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
 using System;
+using System.Effect;
 using TMPro;
 using Piece;
 
@@ -17,8 +18,10 @@ namespace Ingame.Tutorial
         Stage5 = 4,
         Stage6 = 5,
         Stage7 = 6,
+        Stage8 = 7,
+        Stage9 = 8,
     }
-    public class TutorialManager : MonoBehaviour
+    public class TutorialManager : MonoBehaviour, IDropObservable
     {
         ReactiveProperty<TutorialStage> _tutorialStage = new ReactiveProperty<TutorialStage>();
         public IObservable<TutorialStage> tutorialStage//_currentHpの変化があったときに発行される
@@ -34,11 +37,15 @@ namespace Ingame.Tutorial
         [SerializeField]
         BackGroundSet backGroundSet;
         [SerializeField]
+        Transform PazzlePosition;
+        [SerializeField]
         List<GameObject> testPiece;
         [SerializeField]
         private GameObject _resultPanel;
         [SerializeField]
         private PieceArea _pieceArea;
+        [SerializeField]
+        private GameObject[] hidePiece;
 
         void Start()
         {
@@ -46,6 +53,7 @@ namespace Ingame.Tutorial
             {
                 item.SetActive(false);
             }
+            
             tutorialStage
                 .Subscribe(stage =>
                 {
@@ -74,7 +82,12 @@ namespace Ingame.Tutorial
                         case TutorialStage.Stage6://パズルに挑戦
                             StartCoroutine(NextClick());
                             break;
-                        case TutorialStage.Stage7://出来上がってイラストを見てチュートリアル終了
+                        case TutorialStage.Stage7://パズルに挑戦
+                            break;
+                        case TutorialStage.Stage8://出来上がってイラストを見る
+                            StartCoroutine(NextClick());
+                            break;
+                        case TutorialStage.Stage9://チュートリアル終了
                             _resultPanel.SetActive(true);
                             break;
                         default:
@@ -85,6 +98,7 @@ namespace Ingame.Tutorial
         private void NextStage()
         {
             _tutorialStage.Value++;
+            Debug.Log("ステージ："+ _tutorialStage.Value);
         }
 
         public void Generate()
@@ -96,17 +110,31 @@ namespace Ingame.Tutorial
 
         IEnumerator NextClick()
         {
-            if(!_tutorialStage.Value.Equals(TutorialStage.Stage6))
+            yield return new WaitForSeconds(1f);
+            yield return new WaitUntil(() => Input.GetKeyUp(KeyCode.Mouse0));
+            NextStage();
+        }
+
+        public void CheckCompletePuzzle()
+        {
+            if(_pieceArea.isAllUsePiece())
             {
-                yield return new WaitForSeconds(1f);
-                yield return new WaitUntil(() => Input.GetKeyUp(KeyCode.Mouse0));
-                NextStage();
+                Debug.Log("すべてのピースを使用しました");
+                EffectManager.Instance.InstanceEffect(EffectType.CompletePuzzle, PazzlePosition.position);
+                StartCoroutine(goResult());
             }
-            else
+        }
+
+        IEnumerator goResult()
+        {
+            yield return new WaitForSeconds(1.5f);
+            FindObjectOfType<CompleteImage>().ShowImage();
+            foreach (var o in hidePiece)
             {
-                yield return new WaitUntil(() => _pieceArea.isAllUsePiece());
-                NextStage();
+                o.SetActive(false);
             }
+            yield return new WaitForSeconds(2.8f);
+            NextStage();
         }
     }
 }
