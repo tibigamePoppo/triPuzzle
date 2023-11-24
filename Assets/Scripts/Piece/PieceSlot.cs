@@ -1,3 +1,5 @@
+using System;
+using UniRx;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -7,12 +9,25 @@ namespace Piece
     {
         private GameObject _pieceSetArea;
         private PieceInfo _pieceInfo;
+        private SlotRotationManager _slotRotationManager;
 
         private void Start()
         {
             _pieceSetArea = GameObject.FindGameObjectWithTag("SetArea");
+            _slotRotationManager = FindObjectOfType<SlotRotationManager>();
             _pieceInfo = GetComponent<PieceInfo>();
+
+            if (_pieceInfo.getRotatable)
+                _slotRotationManager.BeginDragPiece.Subscribe(piece =>
+                {
+                    if ((piece + _pieceInfo.getRotation) % 180 != 0) RotatePiece();
+                }).AddTo(this);
+            if (gameObject.TryGetComponent(out Collider2D component))
+            {
+                component.enabled = false;
+            }
         }
+        
         public override void OnDrop(PointerEventData eventData)
         {
             base.OnDrop(eventData);
@@ -29,6 +44,12 @@ namespace Piece
                 }
                 else cardParent.canDrop = false;
             }
+        }
+
+        private void RotatePiece()
+        {
+            gameObject.transform.Rotate(0, 0, 270f);
+            _pieceInfo.RotatePiece();
         }
     }
 }
