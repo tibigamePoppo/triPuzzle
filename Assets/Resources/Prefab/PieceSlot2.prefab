@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 228623862414589466}
   - component: {fileID: 6826503913727618990}
   m_Layer: 5
-  m_Name: PieceSlot 2
+  m_Name: PieceSlot2
   m_TagString: PieceSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,7 +43,7 @@ RectTransform:
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 57.8}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &3478162787874346937
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -108,6 +108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextPiece: []
   Rotation: 180
+  slotRotatable: 0
 --- !u!114 &-3477341849469253403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,7 +133,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a6951a86edf4cc4f85cc6aba00f1f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pieceNum: 2
 --- !u!60 &228623862414589466
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -146,7 +146,7 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -29}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -158,9 +158,9 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -49.962494, y: 28.869598}
-      - {x: -0.000016629696, y: -21.000393}
-      - {x: 49.940933, y: 28.853336}
+    - - {x: -47.8255, y: 27.66153}
+      - {x: -0.000016629696, y: -19.60043}
+      - {x: 47.263626, y: 27.37064}
 --- !u!50 &6826503913727618990
 Rigidbody2D:
   serializedVersion: 4

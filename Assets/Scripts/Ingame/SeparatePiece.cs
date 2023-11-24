@@ -45,6 +45,7 @@ namespace Piece
                             Presenter.ColorChange(pieceColor);
                             separeteitem.AddComponent<PieceMovement>();
                             Destroy(separeteitem.GetComponent<PieceSlot>());
+                            separeteitem.GetComponent<Collider2D>().enabled = true;
                         }
                     }
                     newParent.transform.SetParent(PieceArea.transform);

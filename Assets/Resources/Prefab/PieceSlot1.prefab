@@ -12,13 +12,13 @@ GameObject:
   - component: {fileID: 3478162787874346937}
   - component: {fileID: 8203835971527613554}
   - component: {fileID: 5763551833800824463}
-  - component: {fileID: -3886188122746971524}
-  - component: {fileID: -7324022929963348219}
-  - component: {fileID: 1374139073736075574}
-  - component: {fileID: 5241743827067641714}
-  - component: {fileID: 1370048587724423366}
+  - component: {fileID: 5020718114833665839}
+  - component: {fileID: 1762990551761798454}
+  - component: {fileID: -1474296570611831414}
+  - component: {fileID: 5250845963701605713}
+  - component: {fileID: 3301265394195469458}
   m_Layer: 5
-  m_Name: PieceSlot 3
+  m_Name: PieceSlot1
   m_TagString: PieceSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,7 +43,7 @@ RectTransform:
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 58, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &3478162787874346937
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -72,7 +72,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a5d423614357f1b41a3541b98b36f5d0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2a93db0ac93a9b04f9fc13e8cdc86c86, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f738dc8d31e6fb24fb36708b25bb0701, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-3886188122746971524
+--- !u!114 &5020718114833665839
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,8 +107,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextPiece: []
-  Rotation: 90
---- !u!114 &-7324022929963348219
+  Rotation: 270
+  slotRotatable: 0
+--- !u!114 &1762990551761798454
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -120,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57870472b0a2f2c4eb59ecb59f3f7a2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1374139073736075574
+--- !u!114 &-1474296570611831414
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -132,8 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a6951a86edf4cc4f85cc6aba00f1f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pieceNum: 3
---- !u!60 &5241743827067641714
+--- !u!60 &5250845963701605713
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,7 +146,7 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 29, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -158,10 +158,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 28.903381, y: 49.906464}
-      - {x: -20.932686, y: 0.037837774}
-      - {x: 28.849487, y: -49.85208}
---- !u!50 &1370048587724423366
+    - - {x: -27.485474, y: 47.662323}
+      - {x: -27.272661, y: -47.419216}
+      - {x: 19.429756, y: -0.13531882}
+--- !u!50 &3301265394195469458
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0

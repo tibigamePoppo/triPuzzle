@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Effect;
@@ -57,12 +58,12 @@ namespace Piece
             foreach (var item in ChildPiece)
             {
                 //var hit1 = Physics2D.OverlapPoint(item.transform.position);
-                var collider2D = item.GetComponent<Collider2D>();
-                collider2D.enabled = false;
+                var component = item.GetComponent<Collider2D>();
+                //component.enabled = false;
                 var res = new Collider2D[5];
-                var hit = Physics2D.OverlapPoint(item.transform.position, new ContactFilter2D(), res);
-                collider2D.enabled = true;
-                if (hit != 1)
+                var hit = component.OverlapCollider(new ContactFilter2D(), res);
+                //component.enabled = true;
+                if (hit > 0)
                 {
                     return false;
                 }
@@ -87,7 +88,7 @@ namespace Piece
             }
         }
 
-        public void SetPrevParent(Vector3 prev, Vector3 correct)
+        public void SetPrevParent(Vector3 prev, Vector3 correct, Vector2 pivot)
         {
             _prevPos = prev;
             PiecePosition = correct;
@@ -96,8 +97,9 @@ namespace Piece
             gameObject.transform.SetParent(_prevParent.parent, false);
         }
 
-        public void PlacePiece()
+        public IEnumerator PlacePiece()
         {
+            yield return null;
             var rotatable = false;
             if (canDrop && !isArea) canDrop = CheckCollider();
             

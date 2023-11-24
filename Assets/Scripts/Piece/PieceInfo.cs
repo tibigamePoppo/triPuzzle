@@ -9,10 +9,13 @@ namespace Piece
         private List<GameObject> nextPiece;
         [SerializeField]
         private int Rotation;
+        [SerializeField] 
+        private bool slotRotatable;
         private bool isSeparated = false;
 
-        public int getRotation { get => Rotation; }
-        public bool getIsSeparated { get => isSeparated; }
+        public int getRotation => Rotation;
+        public bool getRotatable => slotRotatable;
+        public bool getIsSeparated => isSeparated;
         private int loopMax = 10;
 
         private void Start()

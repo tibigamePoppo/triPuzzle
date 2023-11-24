@@ -43,7 +43,7 @@ RectTransform:
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 57.8}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &3478162787874346937
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -109,6 +109,7 @@ MonoBehaviour:
   nextPiece:
   - {fileID: 0}
   Rotation: 0
+  slotRotatable: 0
 --- !u!114 &-7036338772688001685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,7 +147,7 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 29}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -158,9 +159,9 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.017944336, y: 21.017944}
-      - {x: -49.867897, y: -28.855152}
-      - {x: 49.813362, y: -28.79752}
+    - - {x: -0.017944336, y: 18.99234}
+      - {x: -46.450966, y: -27.061543}
+      - {x: 46.872078, y: -27.338871}
 --- !u!50 &511371096992257478
 Rigidbody2D:
   serializedVersion: 4
