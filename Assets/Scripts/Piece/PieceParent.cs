@@ -55,14 +55,20 @@ namespace Piece
 
         private bool CheckCollider()
         {
+            Debug.Log("当たり判定計測開始");
             foreach (var item in ChildPiece)
             {
                 //var hit1 = Physics2D.OverlapPoint(item.transform.position);
                 var component = item.GetComponent<Collider2D>();
-                //component.enabled = false;
                 var res = new Collider2D[5];
                 var hit = component.OverlapCollider(new ContactFilter2D(), res);
-                //component.enabled = true;
+                foreach (var obj in res)
+                {
+                    if (obj != null)
+                    {
+                        Debug.Log("測定しているオブジェクト："+item.name+"\n当たっているオブジェクト；"+obj.gameObject.name);
+                    }
+                }
                 if (hit > 0)
                 {
                     return false;
