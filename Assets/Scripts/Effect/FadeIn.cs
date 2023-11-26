@@ -18,7 +18,7 @@ public class FadeIn : MonoBehaviour
 
     IEnumerator FadeInAnimation()
     {
-        for (int i = 0; i < FadeDivisionNumber; i++)
+        for (int i = 0; i < FadeDivisionNumber; ++i)
         {
             yield return new WaitForSeconds(FadePerSpeed);
             FadeBase.color = new Color(1, 1, 1, (float)i / FadeDivisionNumber);
