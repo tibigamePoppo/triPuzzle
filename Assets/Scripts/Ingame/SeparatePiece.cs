@@ -1,7 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 namespace Piece
 {
     public class SeparatePiece : MonoBehaviour
@@ -63,8 +61,7 @@ namespace Piece
                         pieceSize++;
                     if (pieceSize >= MaxSinglePieceCount)
                     {
-                        Debug.Log($"ピースの再生成を行いました");
-                        //generatingPuzzle.ReGenerate();
+                        generatingPuzzle.ReGenerate();
                     }
                 }
             }
