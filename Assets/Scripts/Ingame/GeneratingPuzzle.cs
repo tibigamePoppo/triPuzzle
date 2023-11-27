@@ -3,6 +3,7 @@ using UnityEngine;
 using Ingame;
 using TMPro;
 using System;
+using UnityEngine.UI;
 
 namespace Piece
 {
@@ -42,11 +43,14 @@ namespace Piece
             {
                 return;
             }
+            var BackGrounddPieceObject = Instantiate(_puzzleQueue[_currntPuzzleNumber].PuzzlePrefab, _puzzleParentObject.transform);
+            BackGrounddPieceObject.name = "BackGrounddPiece";
             _generatedPuzzleObject = Instantiate(_puzzleQueue[_currntPuzzleNumber].PuzzlePrefab, _puzzleParentObject.transform);
             var GeneratedPieceObject = Instantiate(_puzzleQueue[_currntPuzzleNumber].PuzzlePrefab, _puzzleParentObject.transform);
             gameSateManager._puzzleTile = _puzzleQueue[_currntPuzzleNumber].PuzzleTitle;
             gameSateManager.puzzleImage = _puzzleQueue[_currntPuzzleNumber].PuzzleImage;
             _puzzleTitle.text = "???";
+            SetBackGround(BackGrounddPieceObject);
             backGroundSet.setBackGround(_puzzleQueue[_currntPuzzleNumber]);
             _currntPuzzleNumber++;
             pieceCs.Separate(GeneratedPieceObject);
@@ -54,6 +58,19 @@ namespace Piece
             {
                 _currntPuzzleNumber = 0;
                 PuzzleQueueBuild();
+            }
+        }
+        private void SetBackGround(GameObject target)
+        {
+            var parentCs = target.GetComponent<PieceParent>();
+            var Peace = parentCs.getObject();
+            foreach (var item in Peace)
+            {
+                item.GetComponent<Image>().raycastTarget = false;
+                Destroy(item.GetComponent<PieceSlot>());
+                Destroy(item.GetComponent<PieceInfo>());
+                Destroy(item.GetComponent<Rigidbody2D>());
+                Destroy(item.GetComponent<PolygonCollider2D>());
             }
         }
 
