@@ -7,6 +7,8 @@ namespace Piece
     public class PiecePresenter : MonoBehaviour
     {
         Image image;
+        [SerializeField]
+        Sprite _frameImage;
         void Awake()
         {
             image = GetComponent<Image>();
@@ -14,6 +16,7 @@ namespace Piece
 
         public void ColorChange(Color c)
         {
+            image.sprite = _frameImage;
             image.color = c;
         }
     }
