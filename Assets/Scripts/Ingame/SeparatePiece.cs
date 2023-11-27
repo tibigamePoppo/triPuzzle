@@ -53,6 +53,12 @@ namespace Piece
                     pieceParentCs.setObject();
                     pieceParentCs.childPositionReset();
 
+                    var rnd = Random.Range(0, 4);
+                    for (var i = 0; i < rnd; i++)
+                    {
+                        pieceParentCs.RotatePieces();
+                    }
+
                     if (newParent.transform.childCount.Equals(1))
                         pieceSize++;
                     if (pieceSize >= MaxSinglePieceCount)

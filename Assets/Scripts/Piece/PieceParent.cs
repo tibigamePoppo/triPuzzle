@@ -113,7 +113,11 @@ namespace Piece
             
             if (!canDrop)
             {
-                if (changeArea) rotatable = true;
+                if (changeArea)
+                {
+                    rotatable = true;
+                    isArea = true;
+                }
                 SeManager.Instance.ShotSe(SeType.pieceError);
                 ResetPosition();
             }
