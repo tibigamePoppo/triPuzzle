@@ -34,7 +34,6 @@ namespace Audio
         {
             AudioClip clip = null;
             clip = seLists.FirstOrDefault(se => se.name.Equals(type.ToString()));
-
             if (clip != null)
             {
                 AudioSource.PlayOneShot(clip);

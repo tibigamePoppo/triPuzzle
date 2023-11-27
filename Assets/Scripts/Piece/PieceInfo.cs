@@ -88,7 +88,6 @@ namespace Piece
                 }
                 if (loop > loopMax)
                 {
-                    Debug.LogWarning("loopMax‚É“ž’B");
                     return returnPiece;
                 }
             }

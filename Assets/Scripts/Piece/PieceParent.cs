@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,10 +19,12 @@ namespace Piece
         private Transform _prevParent;
         public Vector3 PiecePosition { get; private set; }
         public int selectedPieceRotation;
+        private ChangeTutorial _changeTutorial;
 
         private void Start()
         {
             _canvasGroup = gameObject.GetComponent<CanvasGroup>();
+            _changeTutorial = GetComponent<ChangeTutorial>();
         }
 
         public List<GameObject> getObject()
@@ -55,20 +58,12 @@ namespace Piece
 
         private bool CheckCollider()
         {
-            Debug.Log("当たり判定計測開始");
             foreach (var item in ChildPiece)
             {
                 //var hit1 = Physics2D.OverlapPoint(item.transform.position);
                 var component = item.GetComponent<Collider2D>();
                 var res = new Collider2D[5];
                 var hit = component.OverlapCollider(new ContactFilter2D(), res);
-                foreach (var obj in res)
-                {
-                    if (obj != null)
-                    {
-                        Debug.Log("測定しているオブジェクト："+item.name+"\n当たっているオブジェクト；"+obj.gameObject.name);
-                    }
-                }
                 if (hit > 0)
                 {
                     return false;
@@ -79,6 +74,12 @@ namespace Piece
 
         public void RotatePieces()
         {
+            if (_changeTutorial != null)
+            {
+                if (!_changeTutorial.Rotatable) return;
+                _changeTutorial.ActiveChange(false);
+                _changeTutorial.CompleteStage();
+            }
             gameObject.transform.Rotate(0, 0, 270f);
             foreach (var piece in ChildPiece)
             {
@@ -101,6 +102,8 @@ namespace Piece
             _prevParent = gameObject.transform.parent;
             _canvasGroup.blocksRaycasts = false;
             gameObject.transform.SetParent(_prevParent.parent, false);
+            
+            if(_changeTutorial != null) _changeTutorial.ActiveChange(false);
         }
 
         public IEnumerator PlacePiece()
@@ -137,6 +140,13 @@ namespace Piece
                 }
             }
 
+            if (_changeTutorial != null)
+            {
+                if (!canDrop || isArea) _changeTutorial.ActiveChange(true);
+                else _changeTutorial.CompleteStage();
+            }
+            
+            
             _canvasGroup.blocksRaycasts = true;
             changeArea = false;
             canDrop = false;

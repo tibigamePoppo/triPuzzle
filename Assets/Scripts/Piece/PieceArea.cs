@@ -22,12 +22,7 @@ namespace Piece
         /// </summary>
         public bool isAllUsePiece()
         {
-            int PieceCount = transform.childCount;
-            if(PieceCount == 0)
-            {
-                return true;
-            }    
-            return false;
+            return transform.childCount <= 0;
         }
     }
 }

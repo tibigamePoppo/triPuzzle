@@ -16,7 +16,6 @@ public class TapEffect : MonoBehaviour
     {
         while (true)
         {
-            Debug.Log("tap");
             yield return new WaitUntil(() => Input.GetKey(KeyCode.Mouse0));
             if(Camera == null)
             {
