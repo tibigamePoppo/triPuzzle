@@ -40,6 +40,7 @@ namespace Ingame.Tutorial
         Transform PazzlePosition;
         [SerializeField]
         List<GameObject> testPiece;
+        
         [SerializeField]
         private PieceArea pieceArea;
         [SerializeField]
@@ -48,13 +49,12 @@ namespace Ingame.Tutorial
         private GameObject clickUI;
         [SerializeField]
         private GameObject yachtPanel;
-        [SerializeField]
-        private SceneObject targetScene;
+        
         [SerializeField]
         private GameObject[] navigateUI;
         [SerializeField] 
         private GameObject[] mobilePieces;
-
+        
         void Start()
         {
             foreach (var item in testPiece)
@@ -121,14 +121,6 @@ namespace Ingame.Tutorial
             StartCoroutine(NextStage());
         }
 
-        public void CheckCompletePuzzle()
-        {
-            if(pieceArea.isAllUsePiece())
-            {
-                EffectManager.Instance.InstanceEffect(EffectType.CompletePuzzle, PazzlePosition.position);
-                StartCoroutine(goResult());
-            }
-        }
 
         IEnumerator goResult()
         {
@@ -145,7 +137,7 @@ namespace Ingame.Tutorial
         IEnumerator Change()
         {
             yield return new WaitForSeconds(0.8f);
-            SceneManager.LoadScene(targetScene);
+            SceneManager.LoadScene("Title");
         }
 
         public void UIActiveChange(bool active)
@@ -163,6 +155,15 @@ namespace Ingame.Tutorial
                     break;
                 default:
                     break;
+            }
+        }
+
+        public void CheckCompletePuzzle()
+        {
+            if (pieceArea.isAllUsePiece())
+            {
+                EffectManager.Instance.InstanceEffect(EffectType.CompletePuzzle, PazzlePosition.position);
+                StartCoroutine(goResult());
             }
         }
     }
