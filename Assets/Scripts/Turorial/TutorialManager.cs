@@ -69,13 +69,13 @@ namespace Ingame.Tutorial
                     {
                         case TutorialStage.Stage1://左のピースの説明
                             StartCoroutine(NextClick());
+                            Generate();
                         break;
                         case TutorialStage.Stage2://右のパズルの説明
                             foreach (var item in testPiece)
                             {
                                 item.SetActive(true);
                             }
-                            Generate();
                             mobilePieces[0].GetComponent<CanvasGroup>().blocksRaycasts = true;
                             break;
                         case TutorialStage.Stage3://ピースをパズルに当てはめる説明
