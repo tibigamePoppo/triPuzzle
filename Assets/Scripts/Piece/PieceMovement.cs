@@ -41,7 +41,7 @@ namespace Piece
         {
             if (_isTap && canRotate)
             {
-                Debug.Log("回転する");
+                SeManager.Instance.ShotSe(SeType.pieceRotate);
                 _pieceParent.RotatePieces();
             }
 
@@ -59,7 +59,6 @@ namespace Piece
             var position = _parentObject.transform.position;
             var correctedPos = gameObject.transform.position - position;
             var rotate = Mathf.Deg2Rad * _parentObject.transform.localEulerAngles.z;
-            Debug.Log("角度；"+rotate);
             _pivotCorrect = new Vector3(
                 0.4f * (_piecePivot.x * Mathf.Cos(rotate) - _piecePivot.y * Mathf.Sin(rotate)),
                 0.4f * (_piecePivot.y * Mathf.Cos(rotate) + _piecePivot.x * Mathf.Sin(rotate)),
@@ -76,7 +75,6 @@ namespace Piece
             {
                 var touchInfo = Input.GetTouch(0);
                 eventData.position = touchInfo.position;
-                Debug.Log("Touch");
             }
 
             // ドラッグ中は位置を更新する

@@ -4,8 +4,10 @@ using UnityEngine;
 using UniRx;
 using System;
 using System.Effect;
+using Audio;
 using TMPro;
 using Piece;
+using UnityEngine.SceneManagement;
 
 namespace Ingame.Tutorial
 {
@@ -18,8 +20,6 @@ namespace Ingame.Tutorial
         Stage5 = 4,
         Stage6 = 5,
         Stage7 = 6,
-        Stage8 = 7,
-        Stage9 = 8,
     }
     public class TutorialManager : MonoBehaviour, IDropObservable
     {
@@ -41,11 +41,19 @@ namespace Ingame.Tutorial
         [SerializeField]
         List<GameObject> testPiece;
         [SerializeField]
-        private GameObject _resultPanel;
-        [SerializeField]
-        private PieceArea _pieceArea;
+        private PieceArea pieceArea;
         [SerializeField]
         private GameObject[] hidePiece;
+        [SerializeField]
+        private GameObject clickUI;
+        [SerializeField]
+        private GameObject yachtPanel;
+        [SerializeField]
+        private SceneObject targetScene;
+        [SerializeField]
+        private GameObject[] navigateUI;
+        [SerializeField] 
+        private GameObject[] mobilePieces;
 
         void Start()
         {
@@ -63,47 +71,43 @@ namespace Ingame.Tutorial
                             StartCoroutine(NextClick());
                         break;
                         case TutorialStage.Stage2://右のパズルの説明
-                            StartCoroutine(NextClick());
-                            break;
-                        case TutorialStage.Stage3://ピースをパズルに当てはめる説明
                             foreach (var item in testPiece)
                             {
                                 item.SetActive(true);
                             }
                             Generate();
-                            StartCoroutine(NextClick());
+                            mobilePieces[0].GetComponent<CanvasGroup>().blocksRaycasts = true;
+                            break;
+                        case TutorialStage.Stage3://ピースをパズルに当てはめる説明
+                            mobilePieces[0].GetComponent<CanvasGroup>().blocksRaycasts = false;
+                            mobilePieces[1].GetComponent<CanvasGroup>().blocksRaycasts = true;
                             break;
                         case TutorialStage.Stage4://型と違うピースが置けない説明
-                            StartCoroutine(NextClick());
                             break;
                         case TutorialStage.Stage5://すべてのピースがはまるとパズルがクリアできる説明
+                            break;
+                        case TutorialStage.Stage6:
+                            SeManager.Instance.ShotSe(SeType.complete);
                             StartCoroutine(NextClick());
                             break;
-                        case TutorialStage.Stage6://パズルに挑戦
-                            StartCoroutine(NextClick());
-                            break;
-                        case TutorialStage.Stage7://パズルに挑戦
-                            break;
-                        case TutorialStage.Stage8://出来上がってイラストを見る
-                            StartCoroutine(NextClick());
-                            break;
-                        case TutorialStage.Stage9://チュートリアル終了
-                            _resultPanel.SetActive(true);
+                        case TutorialStage.Stage7://チュートリアル終了
+                            EffectManager.Instance.InstanceEffect(EffectType.FadeIn, Vector3.zero);
+                            StartCoroutine(Change());
                             break;
                         default:
                             break;
                     }
                 }).AddTo(this);
         }
-        private void NextStage()
+
+        public IEnumerator NextStage()
         {
+            yield return new WaitForSeconds(0.5f);
             _tutorialStage.Value++;
-            Debug.Log("ステージ："+ _tutorialStage.Value);
         }
 
-        public void Generate()
+        private void Generate()
         {
-            var _generatedPuzzleObject = Instantiate(_Puzzle.PuzzlePrefab, _puzzleParentObject.transform);
             _puzzleTitle.text = _Puzzle.PuzzleTitle;
             backGroundSet.setBackGround(_Puzzle);
         }
@@ -111,15 +115,16 @@ namespace Ingame.Tutorial
         IEnumerator NextClick()
         {
             yield return new WaitForSeconds(1f);
+            clickUI.SetActive(true);
             yield return new WaitUntil(() => Input.GetKeyUp(KeyCode.Mouse0));
-            NextStage();
+            clickUI.SetActive(false);
+            StartCoroutine(NextStage());
         }
 
         public void CheckCompletePuzzle()
         {
-            if(_pieceArea.isAllUsePiece())
+            if(pieceArea.isAllUsePiece())
             {
-                Debug.Log("すべてのピースを使用しました");
                 EffectManager.Instance.InstanceEffect(EffectType.CompletePuzzle, PazzlePosition.position);
                 StartCoroutine(goResult());
             }
@@ -128,13 +133,37 @@ namespace Ingame.Tutorial
         IEnumerator goResult()
         {
             yield return new WaitForSeconds(1.5f);
-            FindObjectOfType<CompleteImage>().ShowImage();
+            yachtPanel.GetComponent<CompleteImage>().ShowImage();
             foreach (var o in hidePiece)
             {
                 o.SetActive(false);
             }
             yield return new WaitForSeconds(2.8f);
-            NextStage();
+            StartCoroutine(NextStage());
+        }
+
+        IEnumerator Change()
+        {
+            yield return new WaitForSeconds(0.8f);
+            SceneManager.LoadScene(targetScene);
+        }
+
+        public void UIActiveChange(bool active)
+        {
+            switch (_tutorialStage.Value)
+            {
+                case TutorialStage.Stage2:
+                    navigateUI[0].SetActive(active);
+                    break;
+                case TutorialStage.Stage3:
+                    navigateUI[1].SetActive(active);
+                    break;
+                case TutorialStage.Stage4:
+                    navigateUI[2].SetActive(active);
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }
