@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Boots
   m_EditorClassIdentifier: 
   PuzzlePrefab: {fileID: 4685329963516267099, guid: be24454da236f5a44923ceeb02666900, type: 3}
-  PuzzleTitle: "\u9577\u9774"
+  PuzzleTitle: "\u306A\u304C\u3050\u3064"
   PuzzleImage: {fileID: 21300000, guid: 9423f6335da694441a65081480ca8f28, type: 3}
   PuzzleType: 2

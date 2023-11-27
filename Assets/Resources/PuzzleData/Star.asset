@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Star
   m_EditorClassIdentifier: 
   PuzzlePrefab: {fileID: 5318850082012020607, guid: 2719825c350d01d4e9dc4a6be16b772d, type: 3}
-  PuzzleTitle: "\u6D41\u308C\u661F"
+  PuzzleTitle: "\u306A\u304C\u308C\u307C\u3057"
   PuzzleImage: {fileID: 21300000, guid: 88df0fd4603752344b97c46d36db911e, type: 3}
   PuzzleType: 0
