@@ -61,7 +61,7 @@ namespace Piece
                         pieceSize++;
                     if (pieceSize >= MaxSinglePieceCount)
                     {
-                        generatingPuzzle.ReGenerate();
+                        //generatingPuzzle.ReGenerate();
                     }
                 }
             }
