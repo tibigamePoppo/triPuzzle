@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Car
   m_EditorClassIdentifier: 
   PuzzlePrefab: {fileID: 723682138158202433, guid: 2025674a46aedf7478749eb85038ff63, type: 3}
-  PuzzleTitle: "\u8ECA"
+  PuzzleTitle: "\u304F\u308B\u307E"
   PuzzleImage: {fileID: 21300000, guid: 899073decaacc9f4ab40c0e678fbdc3c, type: 3}
   PuzzleType: 2
