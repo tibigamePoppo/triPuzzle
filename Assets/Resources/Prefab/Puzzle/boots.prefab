@@ -1873,7 +1873,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -3886188122746971524, guid: 288f675621c42024d99054bade09e932, type: 3}
       propertyPath: nextPiece.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -3886188122746971524, guid: 288f675621c42024d99054bade09e932, type: 3}
       propertyPath: nextPiece.Array.data[0]
@@ -1886,7 +1886,7 @@ PrefabInstance:
     - target: {fileID: -3886188122746971524, guid: 288f675621c42024d99054bade09e932, type: 3}
       propertyPath: nextPiece.Array.data[2]
       value: 
-      objectReference: {fileID: 1150545146510880143}
+      objectReference: {fileID: 1874582735715289017}
     - target: {fileID: 2643318261149592604, guid: 288f675621c42024d99054bade09e932, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -3240,6 +3240,10 @@ PrefabInstance:
     - target: {fileID: 7986766088379562421, guid: ebe8f4cb936220b4788d7f23fcc542d4, type: 3}
       propertyPath: slotRotatable
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7986766088379562421, guid: ebe8f4cb936220b4788d7f23fcc542d4, type: 3}
+      propertyPath: nextPiece.Array.size
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7986766088379562421, guid: ebe8f4cb936220b4788d7f23fcc542d4, type: 3}
       propertyPath: nextPiece.Array.data[0]
